@@ -5,24 +5,13 @@ use PDO;
 
 class JazzRepository extends Repository {
 
-    function getAll() {
-        $stmt = $this->connection->prepare("SELECT * FROM articles");
+    function getAllArtists() {
+        $stmt = $this->connection->prepare("SELECT * FROM artists");
         $stmt->execute();
 
-        $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Article');
-        $articles = $stmt->fetchAll();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Artist');
+        $artists = $stmt->fetchAll();
 
-        return $articles;
-    }
-
-
-    public function insert($article) {
-        $stmt = $this->connection->prepare("INSERT INTO articles (title, content, author) 
-        VALUES (:title, :content, :author)");
-        
-        $results = $stmt->execute([':title' => $article->title, 
-                                ':content' => $article->content, 
-                                ':author' => $article->author]);
-        return $results;
+        return $artists;
     }
 }

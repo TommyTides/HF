@@ -12,12 +12,7 @@ class JazzController
 
     public function index()
     {
-        //$model = $this->jazzService->getAll();
+        $artists = $this->jazzService->getAllArtists();
         require __DIR__ . '/../views/jazz/index.php';
-    }
-
-    public function artist()
-    {
-        require __DIR__ . '/../views/home/about.php';
     }
 }

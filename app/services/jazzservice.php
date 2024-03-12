@@ -2,13 +2,8 @@
 namespace App\Services;
 
 class JazzService {
-    public function getAll() {
+    public function getAllArtists() {
         $repository = new \App\Repositories\JazzRepository();
-        return $repository->getAll();
-    }
-
-    public function insert($article) {
-        $repository = new \App\Repositories\JazzRepository();
-        return $repository->insert($article);
+        return $repository->getAllArtists();
     }
 }

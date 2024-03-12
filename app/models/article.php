@@ -8,3 +8,5 @@ class Article {
     public string $author;
     public string $posted_at;   
 }
+
+?>

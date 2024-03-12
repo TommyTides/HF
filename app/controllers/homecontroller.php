@@ -13,7 +13,7 @@ class HomeController
     public function index()
     {
         //$model = $this->articleService->getAll();
-        require __DIR__ . '/../views/jazz/index.php';
+        require __DIR__ . '/../views/home/index.php';
     }
 
     public function about()
