@@ -28,49 +28,48 @@ include __DIR__ . '/../header.php';
 
 <!-- Start main content -->
 <main class="page-content">
-  <div class="card">
-    <div class="content">
-      <h2 class="title">Jazz</h2>
-      <p class="copy">We are thrilled to bring you a weekend full of toe-tapping tunes and soulful melodies. Get ready to swing and sway as we take over the city with the smooth sound of jazz.</p>
-      <button class="btn-card-hover">View Artists</button>
+  <section class="schedule">
+    <div class="section__container">
+      <div class="schedule__container">
+        <!-- card with text -->
+        <a href="#" class="schedule__card">
+          <h3 class="schedule__day">All Artists</h3>
+        </a>
+        <a href="#" class="schedule__card">
+          <h3 class="schedule__day">Thu</h3>
+          <p class="schedule__number">27</p>
+        </a>
+        <a href="#" class="schedule__card">
+          <h3 class="schedule__day">Fri</h3>
+          <p class="schedule__number">28</p>
+        </a>
+        <a href="#" class="schedule__card">
+          <h3 class="schedule__day">Sat</h3>
+          <p class="schedule__number">29</p>
+        </a>
+        <a href="#" class="schedule__card">
+          <h3 class="schedule__day">Sun</h3>
+          <p class="schedule__number">30</p>
+        </a>
+      </div>
     </div>
-  </div>
-  <div class="card">
-    <div class="content">
-      <h2 class="title">History</h2>
-      <p class="copy">Immerse yourself in history with our historic walk, travel back in time, this tour aims to give all-round historic information about the city's landmark.</p>
-      <button class="btn-card-hover">View Trips</button>
-    </div>
-  </div>
-  <div class="card">
-    <div class="content">
-      <h2 class="title">Food</h2>
-      <p class="copy">Welcome to Yummy, Haarlem's premier food festival! We are excited to showcase the delicious cuisine and vibrant culinary scene of our city.</p>
-      <button class="btn-card-hover">Book Now</button>
-    </div>
-  </div>
-  <div class="card">
-    <div class="content">
-      <h2 class="title">Your program</h2>
-      <p class="copy">Create your own personal program and share it with your friends!</p>
-      <button class="btn-card-hover">Book Now</button>
-    </div>
-  </div>
+  </section>
 </main>
 <!-- End main content -->
 
 <!-- Display all artists -->
 <section class="artists">
-  <div class="section__container">
-    <h2 class="section__header">Artists</h2>
+  <div class="artist_section__container">
+    <h2 class="artist__section__header">Artists</h2>
     <div class="artists__container">
       <?php foreach ($artists as $artist) : ?>
         <div class="artist">
-          <img src="img/artist-1.jpg" alt="artist" />
+          <img src="<?= $artist->img ?>" alt="artist" />
           <h3 class="artist__name"><?= $artist->artist_name ?></h3>
           <p class="artist__description"><?= $artist->first_name ?> <?= $artist->last_name ?></p>
           <p class="artist__description"><?= $artist->biography ?></p>
           <button class="btn-card-hover">Read more</button>
+          <button class="btn-add-to-cart">Add to Cart</button>
         </div>
       <?php endforeach; ?>
     </div>
@@ -81,3 +80,10 @@ include __DIR__ . '/../header.php';
 <?php
 include __DIR__ . '/../footer.php';
 ?>
+
+<script>
+  // Access the artist data from controller
+  var artists = <?php echo $artists_json; ?>;
+
+  console.log(artists);
+</script>
