@@ -1,10 +1,10 @@
 {
     "name": "ahrnuld/php-mvc-basic",
-    "description": "Basic MVC blog example in PHP",
+    "description": "Haarlem Festival website",
     "type": "project",
     "authors": [
         {
-            "name": "Mark de Haan (Ahrnuld)"
+            "name": "retake hf project 2.3"
         }
     ],
     "require": {},
