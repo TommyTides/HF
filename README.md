@@ -28,7 +28,7 @@ Or run:
 docker-compose down
 ```
 
-TO INSTALL A PACKAGE USE THIS EXAMPLE:
+TO INSTALL A PACKAGE USE THIS EXAMPLE (this example installs the endroid/qr-code package):
 ```bash
 docker run --rm --interactive --tty --volume ${PWD}/app:/app composer require endroid/qr-code --ignore-platform-req=ext-gd
 ```
