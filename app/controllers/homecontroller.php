@@ -1,7 +1,7 @@
 <?php
 namespace App\Controllers;
 
-class HomeController
+class HomeController extends Controller
 {
     private $articleService;
 

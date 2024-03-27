@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class JazzController
+class JazzController extends Controller
 {
     private $jazzService;
 
