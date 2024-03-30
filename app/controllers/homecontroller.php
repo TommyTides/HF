@@ -1,23 +1,26 @@
 <?php
 namespace App\Controllers;
 
+use App\Services\UserService;   
+use App\Services\PageEditorService;
+use App\Services\ArtistService;
+use App\Models\User;
+
 class HomeController extends Controller
 {
-    private $articleService;
+    private UserService $userService;
+    private ArtistService $artistService;
+    private PageEditorService $pageEditorService;
 
     function __construct()
     {
-        $this->articleService = new \App\Services\ArticleService();
+       $this->userService = new UserService();
+       $this->artistService = new ArtistService();
+       $this->pageEditorService = new PageEditorService();
     }
 
     public function index()
     {
-        //$model = $this->articleService->getAll();
         require __DIR__ . '/../views/home/index.php';
-    }
-
-    public function about()
-    {
-        require __DIR__ . '/../views/home/about.php';
     }
 }
