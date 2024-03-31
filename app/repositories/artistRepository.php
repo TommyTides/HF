@@ -55,7 +55,7 @@ class ArtistRepository extends Repository
             $stmt->bindParam(':id', $id);
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Artist');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Artist');
             return $stmt->fetchAll();
 
         } catch (PDOException $e) {
@@ -64,21 +64,14 @@ class ArtistRepository extends Repository
         }
     }
 
-    
-    function getAll()
-    {
-        try {
-            $stmt = $this->connection->prepare("SELECT * FROM artists");
-            $stmt->execute();
+    function getAll() {
+        $stmt = $this->connection->prepare("SELECT * FROM artists");
+        $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Artist');
-            $artists = $stmt->fetchAll();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Artist');
+        $artists = $stmt->fetchAll();
 
-            return $artists;
-
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
+        return $artists;
     }
 
     function getById($id)

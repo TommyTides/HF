@@ -58,7 +58,7 @@ include __DIR__ . '/../header.php';
 <!-- End main content -->
 
 <!-- Display all artists -->
-<section class="artists">
+<!-- <section class="artists">
   <div class="artist_section__container">
     <h2 class="artist__section__header">Artists</h2>
     <div class="artists__container">
@@ -74,7 +74,7 @@ include __DIR__ . '/../header.php';
       <?php endforeach; ?>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- include footer -->
 <?php
