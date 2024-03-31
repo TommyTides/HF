@@ -17,7 +17,7 @@ class ArtistRepository extends Repository
             $stmt->bindParam(':id', $id);
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Artist');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Artist');
             return $stmt->fetch();
 
         } catch (PDOException $e) {
@@ -81,7 +81,7 @@ class ArtistRepository extends Repository
             $stmt->bindValue(":id", $id);
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Artist');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Artist');
             $artist = $stmt->fetch();
 
             return $artist;
@@ -109,7 +109,7 @@ class ArtistRepository extends Repository
             $stmt->bindValue(":artist_name", "%$artist_name%");
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Event');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Event');
             return $stmt->fetchAll();
 
         } catch (PDOException $e) {
@@ -123,7 +123,7 @@ class ArtistRepository extends Repository
             $stmt->bindValue(":artist_name", "%$artist_name%");
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'ArtistPage');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\ArtistPage');
             return $stmt->fetch();
 
         } catch (PDOException $e) {
@@ -137,7 +137,7 @@ class ArtistRepository extends Repository
             $stmt->bindValue(":artist_name", $artist_name);
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Slide');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Slide');
             $artists = $stmt->fetchAll();
 
             return $artists;
@@ -159,7 +159,7 @@ class ArtistRepository extends Repository
             $stmt->bindValue(":event_type",             $artist->getEventType());
             
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Slide');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Slide');
             $artists = $stmt->fetchAll();
 
             return $artists;
