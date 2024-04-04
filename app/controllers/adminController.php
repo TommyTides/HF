@@ -81,14 +81,14 @@ class AdminController
 
     private function isAdmin(): void
     {
-        if (isset($_SESSION['user'])){
+/*        if (isset($_SESSION['user'])){
             $user = unserialize($_SESSION['user']);
             if($user->getUserType() == 1){
                 echo "<script>window.location.href = '/';</script>";
             }
         }else{
             echo "<script>window.location.href = '/';</script>";
-        }
+        }*/
     }
     public function dashBoard()
     {
@@ -432,26 +432,27 @@ class AdminController
 
     public function manageUsers()
     {
-        $this->isAdmin();
+        //$this->isAdmin();
         $users = $this->userService->getAll();
         require_once(__DIR__ . '/../views/admin/manageusers/index.php');
     }
     public function editUser()
     {
-        $this->isAdmin();
+        //$this->isAdmin();
         $user = $this->userService->getUserById();
+        $_SESSION['user'] = serialize($user);
         $usertypes = $this->userService->getAllUserTypes();
         require_once(__DIR__ . '/../views/admin/manageusers/edituser.php');
     }
     public function createUser()
     {
-        $this->isAdmin();
+        //$this->isAdmin();
         $usertypes = $this->userService->getAllUserTypes();
         require_once(__DIR__ . '/../views/admin/manageusers/createuser.php');
     }
     public function addNewUser()
     {
-        $this->isAdmin();
+        //$this->isAdmin();
         $email = htmlspecialchars($_POST['email']);
         $user = $this->userService->getUserByEmail($email);
         if (is_array($user) && $user['email'] == $email) {
@@ -467,14 +468,14 @@ class AdminController
                 'password' => password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT),
                 'first_name' => htmlspecialchars($_POST['firstname']),
                 'last_name' => htmlspecialchars($_POST['lastname']),
-                'postal_code' => htmlspecialchars($_POST['postcode']),
-                'house_number' => htmlspecialchars($_POST['houseNumber']),
+                'postal_code' => htmlspecialchars($_POST['postal_code']),
+                'house_number' => htmlspecialchars($_POST['house_number']),
                 'street' => htmlspecialchars($_POST['street']),
                 'city' => htmlspecialchars($_POST['city']),
                 'state' => htmlspecialchars($_POST['state']),
                 'country' => htmlspecialchars($_POST['country']),
                 'employee_number' => null,
-                'user_type' => htmlspecialchars($_POST['userType']) // 1 = customer, 2 = admin, 3 = employee
+                'user_type' => htmlspecialchars($_POST['role']) // 1 = customer, 2 = admin, 3 = employee
             );
             $this->userService->registerUser($data);
 
