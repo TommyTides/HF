@@ -46,7 +46,7 @@ class LocationRepository extends Repository
             $stmt = $this->connection->prepare("SELECT * FROM `locations` WHERE location_id = :id");
             $stmt->bindParam(':id', $id);
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Location');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Location');
             return $stmt->fetch();
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -90,7 +90,7 @@ class LocationRepository extends Repository
         ");
             $stmt->bindParam(':id', $id);
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Image');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Image');
             $images = $stmt->fetchAll();
 
             return !empty($images) ? $images : null;
@@ -210,7 +210,7 @@ class LocationRepository extends Repository
         ");
             $stmt->bindParam(':id', $locationId);
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Image');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Image');
             $images = $stmt->fetchAll();
 
             return !empty($images) ? $images : null;

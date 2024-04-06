@@ -20,7 +20,7 @@ class EventRepository extends Repository
             $stmt->bindParam(':id', $id);
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Event');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Event');
             return $stmt->fetch();
 
         } catch (PDOException $e) {
@@ -39,7 +39,7 @@ class EventRepository extends Repository
             ON e.event_id = p.event_id WHERE e.event_type = 1 AND p.product_type = 2 ORDER BY e.start_time ASC;");
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Event');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Event');
             return $stmt->fetchAll();
 
         } catch (PDOException $e) {
@@ -215,7 +215,7 @@ class EventRepository extends Repository
             $stmt->bindParam(':event_id', $event_id);
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Image');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Image');
 
             $images = $stmt->fetch();
             if (empty($images)) {
