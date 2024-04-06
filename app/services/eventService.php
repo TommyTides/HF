@@ -22,9 +22,15 @@ class EventService
             return null;
         }
     }
+
     public function getAllDanceEvents()
     {
         return $this->eventRepository->getAllDanceEvents();
+    }
+
+    public function getAllJazzEvents()
+    {
+        return $this->eventRepository->getAllJazzEvents();
     }
 
     public function getEventBanner(int $getEventId)

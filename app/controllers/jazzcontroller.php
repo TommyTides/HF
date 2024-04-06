@@ -32,9 +32,10 @@ class JazzController extends Controller
 
     public function index()
     {
-        $artists = $this->artistService->getAll();
+        $jazz_events = $this->eventService->getAllJazzEvents();
         // convert to JSON
-        $artists_json = json_encode($artists);
+        // $jazz_events_json = json_encode($jazz_events);
+        // echo $jazz_events_json;
         require __DIR__ . '/../views/jazz/index.php';
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repositories;
 
 use App\Models\Location;
@@ -23,13 +24,14 @@ class LocationRepository extends Repository
             $stmt = $this->connection->prepare("SELECT * FROM `locations`");
             $stmt->execute();
 
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Location');
             $locations = $stmt->fetchAll();
+
             if (empty($locations)) {
                 // handle empty result set
                 return array();
             }
             return $locations;
-
         } catch (PDOException $e) {
             throw new Exception("Error getting all locations:" . $e->getMessage());
         }
@@ -59,14 +61,14 @@ class LocationRepository extends Repository
     {
         try {
             $stmt = $this->connection->prepare("SELECT l.location_id, l.name, l.sublocation, l.description, l.motto, l.email, l.phone_number, 
-                    l.phone_number_2, l.website, l.address_1, l.postal_code, l.city
+                    l.phone_number_2, l.website, l.address_1, l.postal_code, l.city, l.schedule
                     FROM `locations` as l 
                     INNER JOIN event_location as el 
                     ON l.location_id = el.location_id
                     WHERE el.event_id = :id");
             $stmt->bindParam(':id', $id);
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Location');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Location');
             return $stmt->fetch();
         } catch (PDOException $e) {
             echo "Error getting locations: " . $e->getMessage();
@@ -92,7 +94,6 @@ class LocationRepository extends Repository
             $images = $stmt->fetchAll();
 
             return !empty($images) ? $images : null;
-
         } catch (PDOException $e) {
             echo "Error getting Locationimages: " . $e->getMessage();
             return null;
@@ -146,7 +147,6 @@ class LocationRepository extends Repository
             $locationId = $this->connection->lastInsertId();
 
             return $locationId;
-
         } catch (PDOException $e) {
             echo "Error creating new location: " . $e->getMessage();
         }
@@ -196,7 +196,6 @@ class LocationRepository extends Repository
             $stmt->bindParam(':image_id', $imageId);
             $stmt->bindParam(':location_id', $location_id);
             $stmt->execute();
-
         } catch (PDOException $e) {
             echo "Error inserting into location image table: " . $e->getMessage();
         }
@@ -215,7 +214,6 @@ class LocationRepository extends Repository
             $images = $stmt->fetchAll();
 
             return !empty($images) ? $images : null;
-
         } catch (PDOException $e) {
             echo "Error getting primary images for the location: " . $e->getMessage();
             return null;
@@ -238,14 +236,14 @@ class LocationRepository extends Repository
             $city = $location->getCity();
             $schedule = $location->getSchedule();
             $id = $location->getLocationId();
-    
+
             $stmt = $this->connection->prepare("UPDATE `locations` 
             SET `name`=:name, `sublocation`=:sublocation,
             `description`=:description, `motto`=:motto, `email`=:email,
             `phone_number`=:phone_number, `phone_number_2`=:phone_number_2,
             `website`=:website, `address_1`=:address_1, `postal_code`=:postal_code,
             `city`=:city, `schedule`=:schedule WHERE location_id=:id");
-    
+
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':sublocation', $sublocation);
             $stmt->bindParam(':description', $description);
@@ -288,7 +286,8 @@ class LocationRepository extends Repository
      * @param mixed $event_id
      * @return void
      */
-    public function updateEventLocation($location_id, $event_id){
+    public function updateEventLocation($location_id, $event_id)
+    {
         try {
             $stmt = $this->connection->prepare("UPDATE `event_location` SET `event_id`=:event_id WHERE `location_id`=:location_id ");
             $stmt->bindParam(':location_id', $location_id);
@@ -299,11 +298,12 @@ class LocationRepository extends Repository
         }
     }
 
-    public function updateLocationImage( $location_id,$image_id){
+    public function updateLocationImage($location_id, $image_id)
+    {
         try {
             $stmt = $this->connection->prepare("UPDATE `location_image` SET `image_id`=:image_id WHERE `location_id`=:location_id ");
             $stmt->bindParam(':location_id', $location_id);
-            $stmt->bindParam(':image_id',$image_id );
+            $stmt->bindParam(':image_id', $image_id);
             $stmt->execute();
         } catch (PDOException $e) {
             echo "Error updating location image: " . $e->getMessage();
@@ -323,5 +323,4 @@ class LocationRepository extends Repository
             return null;
         }
     }
-
 }

@@ -1,5 +1,8 @@
 <!-- include header -->
 <?php
+
+use App\Services\LocationService;
+
 include __DIR__ . '/../header.php';
 ?>
 
@@ -13,7 +16,7 @@ include __DIR__ . '/../header.php';
       <h3 class="section__subheader">Haarlem Jazz</h3>
       <h2 class="section__header">27th to 30th July 2024</h2>
       <p>
-      The Haarlem Jazz Festival is a four-day celebration of jazz music, taking place from July 27th to July 30th in the historic city of Haarlem. Set against the stunning backdrop of Haarlem's historic architecture and picturesque canals, the festival brings together some of the biggest names in jazz, as well as up-and-coming talent, for a series of concerts, workshops, and jam sessions. With a diverse lineup of international and local artists, the Haarlem Jazz Festival is a must-attend event for any jazz enthusiast. 
+        The Haarlem Jazz Festival is a four-day celebration of jazz music, taking place from July 27th to July 30th in the historic city of Haarlem. Set against the stunning backdrop of Haarlem's historic architecture and picturesque canals, the festival brings together some of the biggest names in jazz, as well as up-and-coming talent, for a series of concerts, workshops, and jam sessions. With a diverse lineup of international and local artists, the Haarlem Jazz Festival is a must-attend event for any jazz enthusiast.
       </p>
       <div class="about__btn">
         <a href="#">
@@ -58,23 +61,29 @@ include __DIR__ . '/../header.php';
 <!-- End main content -->
 
 <!-- Display all artists -->
-<!-- <section class="artists">
+<section class="artists">
   <div class="artist_section__container">
     <h2 class="artist__section__header">Artists</h2>
     <div class="artists__container">
-      <?php foreach ($artists as $artist) : ?>
+      <?php foreach ($jazz_events as $jazz_event) : ?>
         <div class="artist">
-          <img src="<?= $artist->img ?>" alt="artist" />
-          <h3 class="artist__name"><?= $artist->artist_name ?></h3>
-          <p class="artist__description"><?= $artist->first_name ?> <?= $artist->last_name ?></p>
-          <p class="artist__description"><?= $artist->biography ?></p>
+          <h3 class="artist__name"><?= $jazz_event['name'] ?></h3>
+          <!-- img -->
+          <img src="img/artist-1.jpg" alt="artist" class="artist__image" />
+          <!-- time -->
+          <p class="artist__time"><?= $jazz_event['start_time'] . " - " . $jazz_event['end_time'] ?></p>
+          <!-- location -->
+          <?php $location = $this->locationService->getLocationByEvent($jazz_event['event_id']);?>
+          <p class="artist__location"><?= $location->getName() ?></p>
+          <!-- price -->
+          <p class="artist__price">€<?= $jazz_event['price_exc_vat'] ?></p>
           <button class="btn-card-hover">Read more</button>
           <button class="btn-add-to-cart">Add to Cart</button>
         </div>
       <?php endforeach; ?>
     </div>
   </div>
-</section> -->
+</section>
 
 <!-- include footer -->
 <?php
