@@ -37,3 +37,18 @@ UPDATE AUTOLADER
 ```bash
 docker run --rm --interactive --tty --volume ${PWD}/app:/app composer dump-autoload
 ```
+
+# Login Details
+
+### Employee
+- **Username:** tkingsdev@gmail.com
+- **Password:** Test-12345
+
+### Admin
+- **Username:** tkingsdev@gmail.com
+- **Password:** Test-12345
+
+### Customer
+- **Username:** tkingsdev@gmail.com
+- **Password:** Test-12345
+
