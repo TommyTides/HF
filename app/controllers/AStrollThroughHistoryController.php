@@ -1,13 +1,22 @@
 <?php
-require_once(__DIR__ . '/../services/historyservice.php');
-require_once(__DIR__ . '/../models/Location.php');
-require_once(__DIR__ . '/../models/User.php');
-require_once(__DIR__ . '/../services/LocationService.php');
-require_once(__DIR__ . '/../services/ProductService.php');
+//require_once(__DIR__ . '/../models/User.php');
+//require_once(__DIR__ . '/../services/ProductService.php');
+
+use App\Services\ProductService;
+use App\Services\LocationService;
+use App\Services\EventService;
+use App\Services\ArtistService;
+use App\Services\PageEditorService;
+use App\Models\Location;
+use App\Models\Event;
+use App\Models\User;
 class AStrollThroughHistoryController
 {
-    protected $historyService;
-    protected $productService;
+    private ProductService $productService;
+    private LocationService $locationService;
+    private EventService $eventService;
+    private PageEditorService $pageEditorService;
+    private  HistoryService $historyService;
     //private LocationService $locationService;
     function __construct()
     {
