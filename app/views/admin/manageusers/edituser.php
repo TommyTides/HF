@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php include(__DIR__ . '/../general.php'); ?>
     <?php include(__DIR__ . '/../../header.php'); ?>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>User Profile Update</title>
@@ -8,7 +9,7 @@
 <body>
 <div class="container mt-4">
     <h2 class="mb-4">Update Profile</h2>
-    <form action="/user/updateUser" method="POST">
+    <form action="/admin/updateUser" method="POST">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="firstName">First Name</label>
