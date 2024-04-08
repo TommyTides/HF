@@ -1,0 +1,28 @@
+label {
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table td {
+    border: 1px solid #ccc;
+    padding: 5px;
+    max-height: 20px;
+    overflow: hidden;
+}
+
+table th {
+    text-align: center !important;
+    background-color: #0a53be !important;
+    color: white !important;
+}
+
+.modal-open {
+    overflow: hidden !important;
+}

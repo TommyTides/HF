@@ -96,6 +96,7 @@ class UserService
                 $updatedUser = unserialize($_SESSION['user']);
                 $_SESSION['display_name'] = $updatedUser->getFirstName();
                 $_SESSION['is_admin'] = $updatedUser->isAdmin();
+                //echo $user;
             }
         }
         return $result;

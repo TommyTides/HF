@@ -81,14 +81,14 @@ class AdminController
 
     private function isAdmin(): void
     {
-        if (isset($_SESSION['user'])){
+/*        if (isset($_SESSION['user'])){
             $user = unserialize($_SESSION['user']);
             if($user->getUserType() == 1){
                 echo "<script>window.location.href = '/';</script>";
             }
         }else{
             echo "<script>window.location.href = '/';</script>";
-        }
+        }*/
     }
     public function dashBoard()
     {
@@ -103,13 +103,13 @@ class AdminController
     {
         $this->isAdmin();
         $locations = $this->locationService->getAll();
-        require_once(__DIR__ . '/../views/admin/managelocations/index.php');
+        require_once(__DIR__ . '/../views/admin/location/index.php');
     }
     public function createLocation(): void
     {
         $this->isAdmin();
         $events = $this->eventService->getAllEvents();
-        require_once __DIR__ . '/../views/admin/managelocations/createlocation.php';
+        require_once __DIR__ . '/../views/admin/location/addlocation.php';
     }
 
     public function editlocation(): void
@@ -118,7 +118,7 @@ class AdminController
         $location = $this->locationService->getLocationById();
         $events = $this->eventService->getAllEvents();
         $primaryImage = $this->locationService->getLocationPrimaryImage($location->getLocationId());
-        require_once __DIR__ . '/../views/admin/managelocations/updatelocation.php';
+        require_once __DIR__ . '/../views/admin/location/editlocation.php';
     }
 
     public function createNewLocation()
@@ -163,6 +163,7 @@ class AdminController
             $this->locationService->insertLocationImage($id, $locationId);
         }
         echo "<script>alert('Location created!')</script>";
+        echo "<script>location.href='/admin/manageLocations'</script>";
     }
 
     public function insertBannerAndDetailImagesIntoDB($bannerImage, $detailImages)
@@ -208,6 +209,7 @@ class AdminController
             $location->setLocationId(htmlspecialchars($_POST['locationID'], ENT_QUOTES));
         }
         $this->locationService->updateLocation($location);
+        echo "<script>alert('Location Updated')</script>";
         echo "<script>location.href='/admin/manageLocations'</script>";
     }
 
@@ -245,7 +247,7 @@ class AdminController
                 return false;
             }
 
-            $location = $_SERVER['DOCUMENT_ROOT'] . "/images/";
+            $location = $_SERVER['DOCUMENT_ROOT'] . "/../public/img";
             if (!move_uploaded_file($tempName, $location . $bannerImage)) {
                 echo 'Error uploading file: ' . $fileName;
                 return false;
@@ -261,7 +263,7 @@ class AdminController
     {
         $this->isAdmin();
         $events = $this->eventService->getAllEvents();
-        require_once(__DIR__ . '/../views/admin/manageevents/index.php');
+        require_once(__DIR__ . '/../views/admin/events/index.php');
     }
     public function editEvent()
     {
@@ -270,14 +272,14 @@ class AdminController
         $event = $this->eventService->getEvent();
         $eventTypes = $this->eventService->getAllEventTypes();
         $eventImage = $this->eventService->getEventImage();
-        require_once(__DIR__ . '/../views/admin/manageevents/editevent.php');
+        require_once(__DIR__ . '/../views/admin/events/editevent.php');
     }
     public function createEvent()
     {
         $this->isAdmin();
         $locations = $this->locationService->getAll();
         $eventTypes = $this->eventService->getAllEventTypes();
-        require_once(__DIR__ . '/../views/admin/manageevents/createevent.php');
+        require_once(__DIR__ . '/../views/admin/events/addevent.php');
     }
     public function updateEvent()
     {
@@ -290,7 +292,7 @@ class AdminController
         $event->setStartTime(htmlspecialchars($_POST['updateStartDateTime'], ENT_QUOTES));
         $event->setEventType(htmlspecialchars($_POST['eventTypeId'], ENT_QUOTES));
         $event->setEventId(htmlspecialchars($_POST['eventId'], ENT_QUOTES));
-        $event->setNo_of_seats(htmlspecialchars($_POST['noOfSeats'], ENT_QUOTES));
+        //$event->setNo_of_seats(htmlspecialchars($_POST['noOfSeats'], ENT_QUOTES));
         $eventLocation = $_POST['eventLocation'];
 
         // update event location when updated
@@ -310,7 +312,7 @@ class AdminController
             'start_time' => $_POST['startDateTime'],
             'end_time' => $_POST['endDateTime'],
             'event_type' => $_POST['eventType'],
-            'no_of_seats' => $_POST['noOfSeats'],
+            //'no_of_seats' => $_POST['noOfSeats'],
         ];
         $eventLocation = $_POST['eventLocation'];
         //get images and move them to folder
@@ -326,7 +328,7 @@ class AdminController
         $this->locationService->InsertEventLocation($eventId, $eventLocation);
 
         echo "<script>alert('Created event successfully!')</script>";
-        echo "<script>location.href='/admin/manageevents'</script>";
+        echo "<script>location.href='/admin/manageEvents'</script>";
 
     }
     public function deleteEvent()
@@ -334,7 +336,7 @@ class AdminController
         $this->isAdmin();
         $this->eventService->deleteEvent();
         echo "<script>alert('Event deleted!')</script>";
-        echo "<script>location.href='/admin/manageevents'</script>";
+        echo "<script>location.href='/admin/manageEvents'</script>";
     }
 
     public function addArtist()
@@ -349,7 +351,7 @@ class AdminController
         require(__DIR__ . '/../views/admin/manageartists/addArtist.php');
     }
 
-    public function artistsTable()
+    public function manageArtists()
     {
         $this->isAdmin();
         if(isset($_POST['artist_id'])){
@@ -361,7 +363,7 @@ class AdminController
             $this->artistService->deleteArtist($_GET['id']);
         }
         $artists = $this->artistService->getAll();
-        require(__DIR__ . '/../views/admin/manageartists/artistsTable.php');
+        require(__DIR__ . '/../views/admin/artists/index.php');
     }
     
     public function orders()
@@ -388,7 +390,7 @@ class AdminController
 
             $orders[] = $order;
         }
-        require(__DIR__ . '/../views/admin/manageorders/orders.php');
+        require(__DIR__ . '/../views/admin/orders/index.php');
     }
     public function editOrder()
     {
@@ -432,26 +434,39 @@ class AdminController
 
     public function manageUsers()
     {
-        $this->isAdmin();
+        //$this->isAdmin();
         $users = $this->userService->getAll();
         require_once(__DIR__ . '/../views/admin/manageusers/index.php');
     }
     public function editUser()
     {
-        $this->isAdmin();
+        //$this->isAdmin();
         $user = $this->userService->getUserById();
+        $_SESSION['user'] = serialize($user);
         $usertypes = $this->userService->getAllUserTypes();
         require_once(__DIR__ . '/../views/admin/manageusers/edituser.php');
     }
+    public function updateUser(){
+        if (isset($_SESSION['user'])) {
+            $user = unserialize($_SESSION['user']);
+
+            echo json_encode($this->userService->updateUser($user));
+            echo "<script>alert('User Updated!')</script>";
+            echo "<script>location.href='/admin/manageUsers'</script>";
+        } else {
+            echo "<div class='alert alert-danger'>Could not update user.</div>";
+            echo "<script>location.href='/admin/manageUsers'</script>";
+        }
+    }
     public function createUser()
     {
-        $this->isAdmin();
+        //$this->isAdmin();
         $usertypes = $this->userService->getAllUserTypes();
         require_once(__DIR__ . '/../views/admin/manageusers/createuser.php');
     }
     public function addNewUser()
     {
-        $this->isAdmin();
+        //$this->isAdmin();
         $email = htmlspecialchars($_POST['email']);
         $user = $this->userService->getUserByEmail($email);
         if (is_array($user) && $user['email'] == $email) {
@@ -467,14 +482,14 @@ class AdminController
                 'password' => password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT),
                 'first_name' => htmlspecialchars($_POST['firstname']),
                 'last_name' => htmlspecialchars($_POST['lastname']),
-                'postal_code' => htmlspecialchars($_POST['postcode']),
-                'house_number' => htmlspecialchars($_POST['houseNumber']),
+                'postal_code' => htmlspecialchars($_POST['postal_code']),
+                'house_number' => htmlspecialchars($_POST['house_number']),
                 'street' => htmlspecialchars($_POST['street']),
                 'city' => htmlspecialchars($_POST['city']),
                 'state' => htmlspecialchars($_POST['state']),
                 'country' => htmlspecialchars($_POST['country']),
                 'employee_number' => null,
-                'user_type' => htmlspecialchars($_POST['userType']) // 1 = customer, 2 = admin, 3 = employee
+                'user_type' => htmlspecialchars($_POST['role']) // 1 = customer, 2 = admin, 3 = employee
             );
             $this->userService->registerUser($data);
 
@@ -484,6 +499,7 @@ class AdminController
     public function deleteUser(){
         $id=$_GET['id'];
         $this->userService->deleteUser($id);
+        echo "<script>alert('User deleted!')</script>";
         echo "<script>location.href='/admin/manageUsers'</script>";
     }
 

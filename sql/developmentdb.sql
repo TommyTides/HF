@@ -1048,7 +1048,8 @@ CREATE TABLE `webpages` (
   `id` int(11) NOT NULL,
   `path` varchar(64) DEFAULT NULL,
   `container` varchar(255) DEFAULT NULL,
-  `html` longtext
+  `html` longtext,
+  `home` varchar(255) DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

@@ -274,12 +274,15 @@ class UserController
 
     public function updateuser()
     {
+        //echo '<pre>' . var_export($_SESSION, true) . '</pre>';
+
         if (isset($_SESSION['user'])) {
             $user = unserialize($_SESSION['user']);
 
             echo json_encode($this->userService->updateUser($user));
         } else {
             echo json_encode(false);
+            echo 'Session user not set.';
         }
     }
 

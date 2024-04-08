@@ -147,14 +147,14 @@ class EventRepository extends Repository
     public function createEvent($data)
     {
         try {
-            $stmt = $this->connection->prepare("INSERT INTO events (name, description, sub_description, start_time, end_time, event_type,no_of_seats) VALUES (:name, :description, :sub_description, :start_time, :end_time, :event_type,:no_of_seats)");
+            $stmt = $this->connection->prepare("INSERT INTO events (name, description, sub_description, start_time, end_time, event_type) VALUES (:name, :description, :sub_description, :start_time, :end_time, :event_type)");
             $stmt->bindParam(':name', $data['name']);
             $stmt->bindParam(':description', $data['description']);
             $stmt->bindParam(':sub_description', $data['sub_description']);
             $stmt->bindParam(':start_time', $data['start_time']);
             $stmt->bindParam(':end_time', $data['end_time']);
             $stmt->bindParam(':event_type', $data['event_type']);
-            $stmt->bindParam(':no_of_seats', $data['no_of_seats']);
+            //$stmt->bindParam(':no_of_seats', $data['no_of_seats']);
             $stmt->execute();
 
             return $this->connection->lastInsertId();
@@ -165,7 +165,7 @@ class EventRepository extends Repository
     function updateEvent($event)
     {
         try {
-            $stmt = $this->connection->prepare("UPDATE events SET name = :name, description = :description, sub_description = :sub_description, start_time = :start_time, end_time = :end_time,no_of_seats=:no_of_seats ,event_type = :event_type WHERE event_id = :id");
+            $stmt = $this->connection->prepare("UPDATE events SET name = :name, description = :description, sub_description = :sub_description, start_time = :start_time, end_time = :end_time,event_type = :event_type WHERE event_id = :id");
             $stmt->bindParam(':name', $event->getName(), PDO::PARAM_STR);
             $stmt->bindParam(':description', $event->getDescription(), PDO::PARAM_STR);
             $stmt->bindParam(':sub_description', $event->getSubDescription(), PDO::PARAM_STR);
@@ -173,7 +173,7 @@ class EventRepository extends Repository
             $stmt->bindParam(':end_time', $event->getEndTime(), PDO::PARAM_STR);
             $stmt->bindParam(':event_type', $event->getEventType(), PDO::PARAM_INT);
             $stmt->bindParam(':id', $event->getEventId(), PDO::PARAM_INT);
-            $stmt->bindParam(':no_of_seats', $event->getNoOfSeats(), PDO::PARAM_INT);
+            //$stmt->bindParam(':no_of_seats', $event->getNoOfSeats(), PDO::PARAM_INT);
 
             $stmt->execute();
 

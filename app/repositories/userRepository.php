@@ -13,10 +13,10 @@ class UserRepository extends Repository
     function getAll()
     {
         try {
-            $stmt = $this->connection->prepare("SELECT * FROM Users");
+            $stmt = $this->connection->prepare("SELECT * FROM users");
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\User');
             $users = $stmt->fetchAll();
 
             return $users;
@@ -31,7 +31,7 @@ class UserRepository extends Repository
             $stmt = $this->connection->prepare("SELECT MAX(employee_number) FROM users WHERE user_type = 2;");
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\User');
             $employeeNumber = $stmt->fetchAll();
 
             return $employeeNumber;
@@ -43,7 +43,7 @@ class UserRepository extends Repository
     }
     function registerUser($data)
     {
-        $sql = "INSERT INTO Users (email, first_name, last_name, street, house_number, postal_code, city, state, country, password, employee_number, user_type) 
+        $sql = "INSERT INTO users (email, first_name, last_name, street, house_number, postal_code, city, state, country, password, employee_number, user_type) 
         VALUES (:email, :first_name, :last_name, :street, :house_number, :postal_code, :city, :state, :country, :password, :employee_number, :user_type)";
 
         $stmt = $this->connection->prepare($sql);
@@ -71,10 +71,10 @@ class UserRepository extends Repository
     function getUserByEmail($email)
     {
         try {
-            $stmt = $this->connection->prepare("SELECT * FROM Users WHERE email = :email");
+            $stmt = $this->connection->prepare("SELECT * FROM users WHERE email = :email");
             $stmt->bindValue(':email', $email);
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\User');
             $user = $stmt->fetch();
             // Display array results
             return $user;
@@ -86,10 +86,10 @@ class UserRepository extends Repository
     function validateUser(string $email, string $password)
     {
         try {
-            $stmt = $this->connection->prepare("SELECT * FROM Users WHERE Email = :email");
+            $stmt = $this->connection->prepare("SELECT * FROM users WHERE Email = :email");
             $stmt->bindValue(':email', $email);
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\User');
             $user = $stmt->fetch();
             
             return $user;
@@ -159,9 +159,9 @@ class UserRepository extends Repository
     public function getUserById($id)
     {
         try {
-            $stmt = $this->connection->prepare("SELECT * FROM Users WHERE user_id = :id");
+            $stmt = $this->connection->prepare("SELECT * FROM users WHERE user_id = :id");
             $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-            $stmt->setfetchMode(PDO::FETCH_CLASS, 'User');
+            $stmt->setfetchMode(PDO::FETCH_CLASS, 'App\\Models\\User');
             $stmt->execute();
 
             $user = $stmt->fetch();
@@ -195,7 +195,14 @@ class UserRepository extends Repository
              street = :street, house_number = :house_number, city = :city, state = :state, 
              postal_code = :postal_code, country = :country, phone_number = :phone_number WHERE email= :email");
             $stmt->execute($userInfo);
-            return true;
+            // Optional: Check if any row is actually updated
+            if ($stmt->rowCount() > 0) {
+                return true;
+            } else {
+                // Log no update was made, could be because of no changes or user does not exist.
+                error_log("No update made for user with email: " . ($userInfo['email'] ?? 'Unknown'));
+                return false;
+            }
         } catch (PDOException $e) {
             error_log($e);
             return false;
