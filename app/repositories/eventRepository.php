@@ -20,7 +20,7 @@ class EventRepository extends Repository
             $stmt->bindParam(':id', $id);
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Event');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Event');
             return $stmt->fetch();
 
         } catch (PDOException $e) {
@@ -39,7 +39,7 @@ class EventRepository extends Repository
             ON e.event_id = p.event_id WHERE e.event_type = 1 AND p.product_type = 2 ORDER BY e.start_time ASC;");
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Event');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Event');
             return $stmt->fetchAll();
 
         } catch (PDOException $e) {
@@ -47,6 +47,25 @@ class EventRepository extends Repository
             return null;
         }
     }
+
+    /**
+     * Returns all jazz events
+     */
+    public function getAllJazzEvents(): array | null
+    {
+        try {
+            $stmt = $this->connection->prepare("SELECT e.start_time, e.end_time, e.event_id, e.name, e.description, p.price_exc_vat FROM events AS e INNER JOIN products as p
+            ON e.event_id = p.event_id WHERE e.event_type = 3 AND p.product_type = 2 ORDER BY e.start_time ASC;");
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return null;
+        }
+    }
+
     public function getEventBanner(int $getEventId)
     {
         try {
@@ -113,7 +132,6 @@ class EventRepository extends Repository
             throw new Exception("Error getting all event types:" . $e->getMessage());
         }
     }
-
 
     public function deleteEvent($id)
     {
@@ -197,7 +215,7 @@ class EventRepository extends Repository
             $stmt->bindParam(':event_id', $event_id);
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Image');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Image');
 
             $images = $stmt->fetch();
             if (empty($images)) {
