@@ -35,22 +35,22 @@ include __DIR__ . '/../header.php';
     <div class="section__container">
       <div class="schedule__container">
         <!-- card with text -->
-        <a href="#" class="schedule__card">
+        <a href="/jazz" class="schedule__card">
           <h3 class="schedule__day">All Artists</h3>
         </a>
-        <a href="#" class="schedule__card">
+        <a href="/jazz?day=27" class="schedule__card">
           <h3 class="schedule__day">Thu</h3>
           <p class="schedule__number">27</p>
         </a>
-        <a href="#" class="schedule__card">
+        <a href="/jazz?day=28" class="schedule__card">
           <h3 class="schedule__day">Fri</h3>
           <p class="schedule__number">28</p>
         </a>
-        <a href="#" class="schedule__card">
+        <a href="/jazz?day=29" class="schedule__card">
           <h3 class="schedule__day">Sat</h3>
           <p class="schedule__number">29</p>
         </a>
-        <a href="#" class="schedule__card">
+        <a href="/jazz?day=30" class="schedule__card">
           <h3 class="schedule__day">Sun</h3>
           <p class="schedule__number">30</p>
         </a>
@@ -67,17 +67,36 @@ include __DIR__ . '/../header.php';
     <div class="artists__container">
       <?php foreach ($jazz_events as $jazz_event) : ?>
         <div class="artist">
+          <!-- <h2><?= $jazz_event['event_id'] ?></h2> -->
           <h3 class="artist__name"><?= $jazz_event['name'] ?></h3>
           <!-- img -->
-          <img src="img/artist-1.jpg" alt="artist" class="artist__image" />
+          <?php
+          $image = $this->eventService->getEventImageByEventId($jazz_event['event_id']);
+          if ($image && $image->getImage()) {
+            // If image exists
+          ?>
+            <img src="<?= "img/" . $image->getImage(); ?>" alt="artist" class="artist__image" />
+          <?php
+          } else {
+            // If no image is available
+          ?>
+            <img src="/img/placeholder_image.jpg" alt="No Image Available" class="artist__image" />
+          <?php
+          }
+          ?>
           <!-- time -->
-          <p class="artist__time"><?= $jazz_event['start_time'] . " - " . $jazz_event['end_time'] ?></p>
+          <?php
+          // Format start time and end time
+          $start_time = date('H:i', strtotime($jazz_event['start_time']));
+          $end_time = date('H:i', strtotime($jazz_event['end_time']));
+          ?>
+          <p class="artist__time"><?= "time: " . $start_time . " - " . $end_time ?></p>
           <!-- location -->
-          <?php $location = $this->locationService->getLocationByEvent($jazz_event['event_id']);?>
-          <p class="artist__location"><?= $location->getName() ?></p>
+          <?php $location = $this->locationService->getLocationByEvent($jazz_event['event_id']); ?>
+          <p class="artist__location"><?= "Location: " . $location->getName() ?></p>
           <!-- price -->
-          <p class="artist__price">€<?= $jazz_event['price_exc_vat'] ?></p>
-          <button class="btn-card-hover">Read more</button>
+          <p class="artist__price">Price: €<?= $jazz_event['price_exc_vat'] ?></p>
+          <a href="<?= "/jazz?event=".$jazz_event['event_id']?>" class="btn-card-hover">Read more</a>
           <button class="btn-add-to-cart">Add to Cart</button>
         </div>
       <?php endforeach; ?>
@@ -91,8 +110,5 @@ include __DIR__ . '/../footer.php';
 ?>
 
 <script>
-  // Access the artist data from controller
-  var artists = <?php echo $artists_json; ?>;
-
-  console.log(artists);
+  
 </script>

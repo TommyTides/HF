@@ -86,4 +86,8 @@ class EventService
         }
     }
 
+    public function getEventImageByEventId($event_id){
+        return $this->eventRepository->getEventImage($event_id);
+    }
+
 }

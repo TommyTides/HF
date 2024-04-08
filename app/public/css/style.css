@@ -745,3 +745,55 @@ nav {
 .btn-add-to-cart:hover {
   background-color: #218838; 
 }
+
+/* artist section */
+/* Events Section */
+.events {
+  padding: 50px 0; /* Adjust spacing as needed */
+}
+
+.events .section__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.events .section__header {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333; /* Adjust color as needed */
+}
+
+/* Albums Section */
+.albums {
+  padding: 50px 0; /* Adjust spacing as needed */
+}
+
+.albums .section__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.albums .section__header {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333; /* Adjust color as needed */
+}
+
+.albums__container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.album__card {
+  width: calc(50% - 20px); /* Adjust width and spacing as needed */
+  margin-bottom: 40px; /* Adjust spacing as needed */
+}
+
+.album__card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* Add border radius for image */
+}
