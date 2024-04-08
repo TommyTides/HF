@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="/css/adminsidebar.css">
     <title>Edit Location</title>
 </head>
-
 <body>
 <div class="container">
     <h2>Edit Location</h2>

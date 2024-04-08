@@ -9,7 +9,6 @@
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
     <title>Register New User</title>
 </head>
-
 <body>
 
 <div class="container mt-5">

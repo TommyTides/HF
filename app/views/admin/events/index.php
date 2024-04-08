@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <title>Manage all Events</title>
 </head>
-
+<?php include __DIR__ . '/../sidebar.php'; ?>
 <body>
 
 <div class="container">

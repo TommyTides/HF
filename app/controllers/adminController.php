@@ -390,7 +390,7 @@ class AdminController
 
             $orders[] = $order;
         }
-        require(__DIR__ . '/../views/admin/manageorders/orders.php');
+        require(__DIR__ . '/../views/admin/orders/index.php');
     }
     public function editOrder()
     {

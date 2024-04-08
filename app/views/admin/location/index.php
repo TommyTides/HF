@@ -7,7 +7,7 @@
     <?php include(__DIR__ . '/../general.php'); ?>
     <title>Manage all locations</title>
 </head>
-
+<?php include __DIR__ . '/../sidebar.php'; ?>
 <body>
 <div class="container">
     <div class="container mt-3 mb-3">

@@ -8,6 +8,7 @@
     <script type="text/javascript" src="/js/components/tinymce-functions.js" defer></script>
     <title>Page Editor</title>
 </head>
+<?php include __DIR__ . '/../sidebar.php'; ?>
 <section id="page-menu" class="d-flex flex-row m-1">
 
     <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#confirmModal">Add New Page</button>

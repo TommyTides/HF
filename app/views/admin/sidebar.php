@@ -1,141 +1,76 @@
 <style>
-    body {
-        font-family: "Times New Roman";
-    }
-
-    .sidebar {
+    .custom-sidebar {
         position: fixed;
         top: 0;
-        bottom: 0;
         left: 0;
-        z-index: 100;
-        padding: 48px 0 0;
-        box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-        background-color: red;
+        width: 200px;
+        height: 100%;
+        background-color: #333; /* Dark background color */
+        z-index: 1000; /* Ensure it's on top of other content */
+        overflow-y: auto; /* Enable vertical scrolling if needed */
+        padding-top: 60px; /* Add padding to avoid covering content */
     }
 
-    .sidebar-sticky {
-        position: relative;
-        top: 48px;
-        height: calc(100% - 48px);
-        padding-top: .5rem;
-        overflow-x: hidden;
-        overflow-y: auto;
+    .custom-sidebar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
     }
 
-    .sidebar .nav-link {
-        font-weight: 500;
-        color: #333;
+    .custom-sidebar li {
+        padding: 8px 16px;
+        color: #fff; /* White text color */
     }
 
-    .sidebar .nav-link:hover,
-    .sidebar .nav-link.active {
-        color: #007bff;
+    .custom-sidebar a {
+        text-decoration: none;
+        color: #fff; /* White text color */
     }
 
-    .sidebar .nav-link i {
-        margin-right: 8px;
-    }
-
-    .sidebar .nav-item.active {
-        font-weight: 700;
+    .custom-sidebar a:hover {
+        color: #007bff; /* Change color on hover */
     }
 
     .main-content {
-        margin-top: 64px;
-    }
-
-    @media (max-width: 767.98px) {
-        .sidebar {
-            padding-top: 112px;
-        }
-
-        .main-content {
-            margin-top: 160px;
-            margin-left: 250px;
-        }
+        margin-left: 220px; /* Adjust margin to accommodate sidebar */
+        padding-left: 20px; /* Add padding to avoid covering content */
     }
 </style>
-<nav class="col-md-2 d-none d-md-block bg-light sidebar">
-    <div class="sidebar-sticky">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href="/admin/orders">
-                    Orders
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/admin/manageusers" data-toggle="collapse" data-target="#users-collapse">
-                    Manage users
-                </a>
-                <div class="collapse" id="users-collapse">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/manageusers">View users</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/createUser">Add user</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/admin/manageEvents" data-toggle="collapse" data-target="#events-collapse">
-                    Manage events
-                </a>
-                <div class="collapse" id="events-collapse">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/manageevents">View events</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/createevent">Add event</a>
-                        </li>
 
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/admin/managelocations" data-toggle="collapse" data-target="#locations-collapse">
-                    Manage locations
-                </a>
-                <div class="collapse" id="locations-collapse">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/managelocations">View locations</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/createlocation">Add location</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/admin/manageArtists" data-toggle="collapse" data-target="#artists-collapse">
-                    Manage artists
-                </a>
-                <div class="collapse" id="artists-collapse">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/artistsTable">View artists</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/addArtist">Add artist</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/admin/editor">
-                    WYSIWYG
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="/admin/showApiKeys">
-                    Manage API keys
-                </a>
-            </li>
-        </ul>
-    </div>
+<nav class="custom-sidebar">
+    <ul>
+        <li>
+            <a href="/admin/orders">Orders</a>
+        </li>
+        <li>
+            <a href="/admin/manageusers">Manage Users</a>
+            <ul>
+                <li><a href="/admin/manageusers">View Users</a></li>
+                <li><a href="/admin/createuser">Add User</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="/admin/manageevents">Manage Events</a>
+            <ul>
+                <li><a href="/admin/manageevents">View Events</a></li>
+                <li><a href="/admin/createevent">Add Event</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="/admin/managelocations">Manage Locations</a>
+            <ul>
+                <li><a href="/admin/managelocations">View Locations</a></li>
+                <li><a href="/admin/createlocation">Add Location</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="/admin/manageartists">Manage Artists</a>
+            <ul>
+                <li><a href="/admin/artistsTable">View Artists</a></li>
+                <li><a href="/admin/addArtist">Add Artist</a></li>
+            </ul>
+        </li>
+        <li><a href="/admin/editor">WYSIWYG</a></li>
+        <li><a href="/admin/showApiKeys">Manage API Keys</a></li>
+    </ul>
 </nav>

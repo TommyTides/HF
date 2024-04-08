@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <title>Create event</title>
 </head>
-
 <body>
-<?php /*include __DIR__ . '/../sidebar.php'; */?>
+
 
 <div class="container">
     <h2>Create Event</h2>

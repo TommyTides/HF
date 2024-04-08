@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <title>Create new Location</title>
 </head>
-
 <body>
 <div class="container">
     <h2>Create Location</h2>
