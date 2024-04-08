@@ -21,7 +21,7 @@ class ProductRepository extends Repository
             $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'JazzProduct');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\JazzProduct');
             return $stmt->fetchAll();
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -48,7 +48,7 @@ class ProductRepository extends Repository
             $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
             $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'JazzProduct');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\JazzProduct');
             return $stmt->fetchAll();
         } catch (Exception $e) {
             echo $e->getMessage();
@@ -69,22 +69,6 @@ class ProductRepository extends Repository
         }
     }
 
-    function getRestaurantEvents($query): Product|array|null
-    {
-        try {
-            $stmt = $this->connection->prepare($query);
-            $stmt->execute();
-
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'RestaurantProduct');
-            $products = $stmt->fetchAll();
-            return $products;
-
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-            return null;
-        }
-    }
-
     public function getSingleJazzProduct($id)
     {
         try {
@@ -101,7 +85,7 @@ class ProductRepository extends Repository
             $stmt->bindParam(':id', $id);
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'JazzProduct');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\JazzProduct');
             return $stmt->fetch();
 
         } catch (PDOException $e) {
@@ -126,7 +110,7 @@ class ProductRepository extends Repository
             $stmt->bindParam(':id', $id);
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'DanceProduct');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\DanceProduct');
             return $stmt->fetch();
 
         } catch (PDOException $e) {
@@ -139,7 +123,7 @@ class ProductRepository extends Repository
     {
         try {
             $stmt = $this->connection->prepare("SELECT DISTINCT product_id, product_type, e.event_id, e.name, e.description, 
-                    price_exc_vat, vat, start_time, end_time, sub_description, l.location_id, l.name as location, l.sublocation
+                    price_exc_vat, vat, start_time, end_time, l.location_id, l.name as location, l.sublocation
                     FROM products AS p 
                     INNER JOIN events AS e
                     ON p.event_id = e.event_id
@@ -157,7 +141,7 @@ class ProductRepository extends Repository
             $stmt->bindParam(':id', $artistId);
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'JazzProduct');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\JazzProduct');
             return $stmt->fetchAll();
 
         } catch (PDOException $e) {
@@ -173,7 +157,7 @@ class ProductRepository extends Repository
             $stmt->bindParam(':id', $id);
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Product');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Product');
             return $stmt->fetch();
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -187,7 +171,7 @@ class ProductRepository extends Repository
             $stmt = $this->connection->prepare($query);
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'DanceProduct');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\DanceProduct');
             $products = $stmt->fetchAll();
             return $products;
         } catch (PDOException $e) {
@@ -203,7 +187,7 @@ class ProductRepository extends Repository
             $stmt->bindParam(':searchTerm', $searchTerm);
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'DanceProduct');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\DanceProduct');
             $products = $stmt->fetchAll();
             return $products;
         } catch (PDOException $e) {
@@ -273,7 +257,7 @@ class ProductRepository extends Repository
             $stmt->bindParam(':time', $data['time']);
             $stmt->bindParam(':language', $data['language']);
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Product');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Product');
             $stmt->execute();
             return $stmt->fetch();
         } catch (PDOException $e) {
@@ -293,7 +277,7 @@ class ProductRepository extends Repository
                                                         WHERE s.user_id = :userId");
             $stmt->bindParam(':userId', $userId);
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Product');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Product');
             return $stmt->fetchAll();
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -312,7 +296,7 @@ class ProductRepository extends Repository
                                                         WHERE s.shoppingcart_id = :cartId");
             $stmt->bindParam(':cartId', $cartId);
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Product');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Product');
             return $stmt->fetchAll();
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -350,7 +334,7 @@ class ProductRepository extends Repository
                                                         WHERE s.sharelink = :sharelink");
             $stmt->bindParam(':sharelink', $sharelink);
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Product');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Product');
             return $stmt->fetchAll();
         } catch (PDOException $e) {
             echo $e->getMessage();

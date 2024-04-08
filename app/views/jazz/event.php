@@ -14,9 +14,9 @@ include __DIR__ . '/../header.php';
     </div>
     <div class="about__content about__content-1">
       <h3 class="section__subheader">About</h3>
-      <h2 class="section__header">Gumbo Kings</h2>
+      <h2 class="section__header"><?= $event->getName(); ?></h2>
       <p>
-        The Gumbo Kings are a five-piece band that combines the groove of New Orleans with rough delta blues and the melody of soul from ancient Memphis.
+      <?= $event->getDescription() ?>
       </p>
       <div class="about__btn">
         <a href="#">
@@ -31,7 +31,16 @@ include __DIR__ . '/../header.php';
   <section class="events">
     <div class="section__container">
       <h3 class="section__subheader">Events</h3>
-      <!-- Add your events content here -->
+      <!-- for loop $artistProducts -->
+      <?php foreach ($artistProducts as $artistProduct) : ?>
+        <div class="event__card">
+          <h3 class="event__name"><?= $artistProduct->getName(); ?></h3>
+          <p class="event__time"><?= $artistProduct->getStartTime(); ?></p>
+          <p class="event__location"><?= $artistProduct->getLocation(); ?></p>
+          <p class="event__description"><?= $artistProduct->getDescription(); ?></p>
+          <p class="event__price"><?= $artistProduct->getPrice(); ?></p>
+        </div>
+      <?php endforeach; ?>
     </div>
   </section>
 

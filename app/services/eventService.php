@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services;
 
 use App\Repositories\EventRepository;
@@ -44,15 +45,15 @@ class EventService
     }
     public function updateEvent($event)
     {
-         $this->eventRepository->updateEvent($event);
+        $this->eventRepository->updateEvent($event);
     }
     public function getAllEventTypes()
     {
         return $this->eventRepository->getAllEventTypes();
     }
-    public function updateEventImage($imageId,$image)
+    public function updateEventImage($imageId, $image)
     {
-          $this->eventRepository->updateEventImage($imageId,$image);
+        $this->eventRepository->updateEventImage($imageId, $image);
     }
     public function deleteEvent()
     {
@@ -78,7 +79,8 @@ class EventService
             return null;
         }
     }
-    public function getEventImage(){
+    public function getEventImage()
+    {
         if (isset($_GET['id'])) {
             return $this->eventRepository->getEventImage($_GET['id']);
         } else {
@@ -86,8 +88,13 @@ class EventService
         }
     }
 
-    public function getEventImageByEventId($event_id){
+    public function getEventImageByEventId($event_id)
+    {
         return $this->eventRepository->getEventImage($event_id);
     }
 
+    public function getEventById($event_id): Event|null
+    {
+        return $this->eventRepository->getEvent($event_id);
+    }
 }

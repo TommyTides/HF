@@ -55,29 +55,33 @@ class JazzController extends Controller
     // show individual jazz event
     public function event(): void
     {
+        if(!isset($_GET['event'])) {
+            header("Location: /jazz");
+            return;
+        }
         // Get event
-        $event = $this->eventService->getEvent();
+        $event = $this->eventService->getEventById($_GET['event']);
 
         if ($event != null) {
-            // Get artist
+            // // Get artist
             $artists = $this->artistService->getArtistsByEvent($event->getEventId());
 
-            // Get location
+            // // Get location
             $location = $this->locationService->getLocationByEvent($event->getEventId());
 
-            // Get event product
+            // // Get event product
             $product = $this->productService->getSingleJazzProduct($event->getEventId());
 
-            // Get artist products
+            // // Get artist products
             $artistProducts = $this->productService->getAllArtistProducts($artists[0]->getArtistId());
 
-            // Get images
-            $banner = $this->eventService->getEventBanner($event->getEventId());
+            // // Get images
+            // $banner = $this->eventService->getEventBanner($event->getEventId());
 
-            $artistImages = [];
-            for ($i = 0; $i < count($artists); $i++) {
-                $artistImages[$i] = $this->artistService->getArtistImage($artists[$i]->getArtistId(), "primary");
-            }
+            // $artistImages = [];
+            // for ($i = 0; $i < count($artists); $i++) {
+            //     $artistImages[$i] = $this->artistService->getArtistImage($artists[$i]->getArtistId(), "primary");
+            // }
 
             $locationImage = $this->locationService->getLocationImage($location->getLocationId(), "primary");
         }

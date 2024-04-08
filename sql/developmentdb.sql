@@ -794,7 +794,7 @@ CREATE TABLE `password_reset_tokens` (
 --
 
 INSERT INTO `password_reset_tokens` (`id`, `email`, `token`, `expiration`) VALUES
-(16, 'phil@email.com', '228990c1df33df8c82186b17188179006dd500e0', '2023-03-15 11:59:24'),
+(16, 'tommy@email.com', '228990c1df33df8c82186b17188179006dd500e0', '2023-03-15 11:59:24'),
 (17, 'escumicrazvan@yahoo.com', '2484f5221f9bc03533aa9d8675fc669506dafc8d', '2023-03-28 16:39:11');
 
 -- --------------------------------------------------------
