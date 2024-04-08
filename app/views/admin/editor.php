@@ -15,19 +15,9 @@
 
     <button class="btn btn-primary m-1" value="/home/activities" data-value2="#data-container"
             onclick="loadPage(this.value, this.getAttribute('data-value2'), this)">Activities</button>
-    <button class="btn btn-primary m-1" value="/home/history" data-value2="#data-container"
-            onclick="loadPage(this.value, this.getAttribute('data-value2'), this)">History</button>
-    <button class="btn btn-primary m-1" value="/home/index" data-value2="#data-container"
+        <button class="btn btn-primary m-1" value="/home/index" data-value2="#data-container"
             onclick="loadPage(this.value, this.getAttribute('data-value2'), this)">Home - Index</button>
-    <button class="btn btn-primary m-1" value="/astrollthroughhistory/index" data-value2="#featured-locations"
-            onclick="loadPage(this.value, this.getAttribute('data-value2'), this)">History - Featured Locations</button>
-    <button class="btn btn-primary m-1" value="/home/performances" data-value2="#data-container"
-            onclick="loadPage(this.value, this.getAttribute('data-value2'), this)">Performances</button>
-    <button class="btn btn-primary m-1" value="/dance/index" data-value2="#landing-container"
-            onclick="loadPage(this.value, this.getAttribute('data-value2'), this)">Dance-Landing-Info</button>
-    <button class="btn btn-primary m-1" value="/dance/index" data-value2="#ticket-container"
-            onclick="loadPage(this.value, this.getAttribute('data-value2'), this)">Dance-Tickets</button>
-    <button class="btn btn-primary m-1" value="/jazz/index" data-value2="#introduction"
+       <button class="btn btn-primary m-1" value="/jazz/index" data-value2="#introduction"
             onclick="loadPage(this.value, this.getAttribute('data-value2'), this)">Jazz - Intro</button>
 
     <?php foreach($customPages as $page){?>
