@@ -53,7 +53,7 @@ class UserController
             if (is_array($user) && $user['email'] == $email) {
                 $errorMessage = "Account is already registered.";
                 echo "<script>alert('$errorMessage');</script>";
-                echo "<script>location.href='/user/register'</script>";
+                echo "<script>location.href='/user/auth'</script>";
 
                 return;
             } else {
@@ -72,16 +72,17 @@ class UserController
                     'user_type' => 1 // 1 = customer, 2 = admin, 3 = employee
                 );
             }
-            $captcha = $this->verifyCaptcha();
+            // $captcha = $this->verifyCaptcha();
+            $captcha = true;
             if ($captcha) {
                 // Register user
                 $this->userService->registerUser($data);
                 echo "<script>alert('Account successfully registered.');</script>";
-                echo "<script>location.href='/user/login'</script>";
+                echo "<script>location.href='/user/auth'</script>";
             } else {
                 $errorMessage = "Please complete the captcha before submitting the form.";
                 echo "<script>alert('$errorMessage');</script>";
-                echo "<script>location.href='/user/register'</script>";
+                echo "<script>location.href='/user/auth'</script>";
                 exit;
             }
         }

@@ -48,26 +48,64 @@
                                         </div>
                                     </div>
                                 </form>
-                                <div class="card-back">
+                                <form class="card-back" method="POST" action="/user/signUp">
                                     <div class="center-wrap">
                                         <div class="section text-center">
                                             <h4 class="mb-4 pb-3">Sign Up</h4>
+                                            <!-- firstName -->
                                             <div class="form-group">
-                                                <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off">
+                                                <input type="text" name="firstname_Register" class="form-style" placeholder="Your First Name" id="inputFirstName" autocomplete="off">
                                                 <i class="input-icon uil uil-user"></i>
                                             </div>
+                                            <!-- lastname -->
                                             <div class="form-group mt-2">
-                                                <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
+                                                <input type="text" name="lastname_Register" class="form-style" placeholder="Your Last Name" id="inputLastName" autocomplete="off">
+                                                <i class="input-icon uil uil-user"></i>
+                                            </div>
+                                            <!-- email -->
+                                            <div class="form-group mt-2">
+                                                <input type="email" name="email_Register" class="form-style" placeholder="Your Email" id="inputEmail" autocomplete="off">
                                                 <i class="input-icon uil uil-at"></i>
                                             </div>
+                                            <!-- password -->
                                             <div class="form-group mt-2">
-                                                <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
+                                                <input type="password" name="password_Register" class="form-style" placeholder="Your Password" id="inputPassword2" autocomplete="off" >
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
-                                            <a href="#" class="btn mt-4">submit</a>
+                                            <!-- city -->
+                                            <div class="form-group mt-2">
+                                                <input type="text" name="city_Register" class="form-style" placeholder="Your City" id="inputCity" autocomplete="off">
+                                                <i class="input-icon uil uil-home"></i>
+                                            </div>
+                                            <!-- street -->
+                                            <div class="form-group mt-2">
+                                                <input type="text" name="street_Register" class="form-style" placeholder="Your Street" id="inputStreetNumber" autocomplete="off">
+                                                <i class="input-icon uil uil-home"></i>
+                                            </div>
+                                            <!-- house number -->
+                                            <div class="form-group mt-2">
+                                                <input type="text" name="houseNumber_Register" class="form-style" placeholder="Your House Number" id="inputHouseNumber" autocomplete="off">
+                                                <i class="input-icon uil uil-home"></i>
+                                            </div>
+                                            <!-- post code -->
+                                            <div class="form-group mt-2">
+                                                <input type="text" name="postcode_Register" class="form-style" placeholder="Your Postcode" id="inputPostCode" autocomplete="off">
+                                                <i class="input-icon uil uil-home"></i>
+                                            </div>
+                                            <!-- country -->
+                                            <div class="form-group mt-2">
+                                                <input type="text" name="country_Register" class="form-style" placeholder="Your Country" id="inputCountry" autocomplete="off">
+                                                <i class="input-icon uil uil-home"></i>
+                                            </div>
+                                            <!-- state -->
+                                            <div class="form-group mt-2">
+                                                <input type="text" name="state_Register" class="form-style" placeholder="Your State" id="inputState" autocomplete="off">
+                                                <i class="input-icon uil uil-home"></i>
+                                            </div>
+                                            <button id="signUpBtn" name="signUpBtn" class="btn mt-4">submit</button>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -76,7 +114,8 @@
         </div>
     </div>
     <script type="text/javascript" defer src="../../js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" defer src="../../js/login/login.js"></script>
+    <!-- <script type="text/javascript" defer src="../../js/login.js"></script> -->
+    <script type="text/javascript" defer src="../../js/auth.js"></script>
 </body>
 
 </html>
