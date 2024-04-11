@@ -26,16 +26,26 @@
           <li><a href="program">Your program</a></li>
           <li><a href="jazz">Jazz</a></li>
           <li><a href="history">History</a></li>
-          <li><a href="restaurant">Yummy!</a></li>
+          <li><a href="cart">Cart</a></li>
         </ul>
         <div class="nav__menu__btn" id="menu-btn">
           <i class="ri-menu-line"></i>
         </div>
-        <div class="nav__action__btn">
-          <button class="btn">
-            <span><i class="ri-user-line"></i></span> Account
-          </button>
-        </div>
+
+        <?php if (isset($_SESSION['user'])) : ?>
+          <div class="nav__action__btn">
+            <button class="btn">
+              <span><i class="ri-user-line"></i></span> Account
+            </button>
+          </div>
+        <?php else : ?>
+          <div class="nav__action__btn">
+            <a href="/user/auth" class="btn">
+              <span><i class="ri-login-line"></i></span> Login
+            </a>
+          </div>
+        <?php endif; ?>
+
       </div>
     </nav>
     <div class="section__container header__container">

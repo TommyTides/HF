@@ -26,6 +26,9 @@ class UserController
         $model = $this->userService->getAll();
         require __DIR__ . '/../views/home/index.php';
     }
+    public function auth() {
+        require_once(__DIR__ . "/../views/auth/auth.php");
+    }
     public function login()
     {
         require_once(__DIR__ . "/../views/login/index.php");
@@ -92,10 +95,10 @@ class UserController
             $user = $this->userService->validateUser($email, $password);
             if (empty($user)) {
                 echo " <script type='text/javascript'>alert('Invalid email or password. Please try again');</script>";
-                echo "<script>location.href='/user/login'</script>";
+                echo "<script>location.href='/user/auth'</script>";
             } else {
                 $_SESSION['user'] = serialize($user);
-                echo "<script>location.href='/home/index'</script>";
+                echo "<script>location.href='/'</script>";
                 echo " <script type='text/javascript'>alert('Login successful');</script>";
             }
         }

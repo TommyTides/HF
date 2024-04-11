@@ -73,7 +73,7 @@ class ProductRepository extends Repository
     {
         try {
             $stmt = $this->connection->prepare("SELECT product_id, product_type, e.event_id, e.name, e.description, 
-                    price_exc_vat, vat, start_time, end_time, sub_description, l.location_id, l.name as location, l.sublocation
+                    price_exc_vat, vat, start_time, end_time, l.location_id, l.name as location, l.sublocation
                     FROM products AS p 
                     INNER JOIN events AS e
                     ON p.event_id = e.event_id 
