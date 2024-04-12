@@ -31,7 +31,7 @@ include __DIR__ . '/../header.php';
     <div class="content">
       <h2 class="title">Jazz</h2>
       <p class="copy">We are thrilled to bring you a weekend full of toe-tapping tunes and soulful melodies. Get ready to swing and sway as we take over the city with the smooth sound of jazz.</p>
-      <button class="btn-card-hover">View Artists</button>
+      <a href="/jazz" class="btn-card-hover">View Artists</a>
     </div>
   </div>
   <div class="card">

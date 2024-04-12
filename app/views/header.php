@@ -16,12 +16,12 @@
   <header class="header" id="home">
     <nav>
       <div class="nav__bar">
-        <div class="logo nav__logo">
+        <a href="/" class="logo nav__logo">
           <!-- <a href="#">HF</a> -->
           <!-- logo png inserted -->
           <img src="img/logo.png" alt="logo" />
 
-        </div>
+        </a>
         <ul class="nav__links" id="nav-links">
           <li><a href="program">Your program</a></li>
           <li><a href="jazz">Jazz</a></li>
