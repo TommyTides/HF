@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Controllers;
 use App\Services\ProductService;
 use App\Services\LocationService;
 use App\Services\EventService;
@@ -8,7 +8,7 @@ use App\Services\PageEditorService;
 use App\Models\Location;
 use App\Models\Event;
 use App\Models\User;
-class AStrollThroughHistoryController
+class historyController extends Controller
 {
     private ProductService $productService;
     private LocationService $locationService;
@@ -18,7 +18,7 @@ class AStrollThroughHistoryController
     //private LocationService $locationService;
     function __construct()
     {
-        $this->historyService = new HistoryService();
+        //$this->historyService = new HistoryService();
         $this->locationService = new LocationService();
         $this->productService = new ProductService();
     }  
