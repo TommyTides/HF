@@ -36,12 +36,7 @@ class AStrollThroughHistoryController
         //$output = $this->locationService->getSchedule();
         //require(__DIR__ . '/../views/history/index.php');
 
-        if (isset($_GET['location'])) {
-            $this->location();
-            return;
-        }
-       
-        require __DIR__ . '/../views/jazz/index.php';
+        require __DIR__ . '/../views/history/index.php';
     }
     public function location()
     {
