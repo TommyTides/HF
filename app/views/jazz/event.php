@@ -38,7 +38,7 @@ include __DIR__ . '/../header.php';
           <p class="event__time"><?= $artistProduct->getStartTime(); ?></p>
           <p class="event__location"><?= $artistProduct->getLocation(); ?></p>
           <p class="event__description"><?= $artistProduct->getDescription(); ?></p>
-          <p class="event__price"><?= $artistProduct->getPrice(); ?></p>
+          <p class="event__price">€<?= $artistProduct->getPrice(); ?></p>
         </div>
       <?php endforeach; ?>
     </div>
@@ -51,12 +51,12 @@ include __DIR__ . '/../header.php';
       <div class="albums__container">
         <!-- Album Card 1 -->
         <div class="album__card">
-          <img src="path_to_album_image_1.jpg" alt="Album 1" />
+          <img src="img\albums\gumbokings-album1.jpg" alt="Album 1" />
           <!-- Add album details if needed -->
         </div>
         <!-- Album Card 2 -->
         <div class="album__card">
-          <img src="path_to_album_image_2.jpg" alt="Album 2" />
+          <img src="img\albums\gumbokings-album2.jpg" alt="Album 2" />
           <!-- Add album details if needed -->
         </div>
       </div>

@@ -797,3 +797,33 @@ nav {
   height: auto;
   border-radius: 8px; /* Add border radius for image */
 }
+
+/* single event card */
+.event__card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  color: white;
+  width: 50%;
+}
+
+.event__name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.event__time,
+.event__location,
+.event__description,
+.event__price {
+  margin-bottom: 5px;
+  color: #cbd5e1;
+}
+
+.event__price {
+  font-weight: bold;
+  color: #007bff; /* or any other color you prefer */
+}
