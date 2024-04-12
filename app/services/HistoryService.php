@@ -1,6 +1,6 @@
 <?php
-require_once(__DIR__ . '/../repositories/HistoryRepository.php');
-require_once(__DIR__ . '/../models/Location.php');
+use App\Repositories\HistoryRepository;
+use App\Models\Location;
 class HistoryService
 {
     private HistoryRepository $repository;

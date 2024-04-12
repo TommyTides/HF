@@ -1,6 +1,4 @@
 <?php
-//require_once(__DIR__ . '/../models/User.php');
-//require_once(__DIR__ . '/../services/ProductService.php');
 
 use App\Services\ProductService;
 use App\Services\LocationService;
@@ -27,16 +25,23 @@ class AStrollThroughHistoryController
  
     public function index()
     {
-        $event = $this->historyService->getEvent();
+        //$event = $this->historyService->getEvent();
 
-        $startDate = $this->convertDateTime($event['start_time']);
-        $endDate = $this->convertDateTime($event['end_time']);
+        //$startDate = $this->convertDateTime($event['start_time']);
+        //$endDate = $this->convertDateTime($event['end_time']);
 
-        $generalInfo = $this->historyService->getGeneralInformation();
-        $locations = $this->historyService->getAllLocations();
-        $schedule = $this->scheduleToArray();
-        $output = $this->locationService->getSchedule();
-        require(__DIR__ . '/../views/historyevent/index.php');
+        //$generalInfo = $this->historyService->getGeneralInformation();
+        //$locations = $this->historyService->getAllLocations();
+        //$schedule = $this->scheduleToArray();
+        //$output = $this->locationService->getSchedule();
+        //require(__DIR__ . '/../views/history/index.php');
+
+        if (isset($_GET['location'])) {
+            $this->location();
+            return;
+        }
+       
+        require __DIR__ . '/../views/jazz/index.php';
     }
     public function location()
     {
