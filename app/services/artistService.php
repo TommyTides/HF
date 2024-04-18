@@ -82,6 +82,10 @@ class ArtistService
     public function insertArtist($artist): void
     {
         $this->artistRepository->insertArtist($artist);
+
+
+
+
         return;
 
     }

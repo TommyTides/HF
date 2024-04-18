@@ -7,7 +7,7 @@ class LocationService
 {
     private LocationRepository $locationRepository;
 
-    public function getAll(): array|null
+    public function getAll()
     {
         return $this->locationRepository->getAll();
     }

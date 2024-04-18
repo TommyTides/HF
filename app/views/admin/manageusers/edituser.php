@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <?php include(__DIR__ . '/../general.php'); ?>
-    <?php include(__DIR__ . '/../../header.php'); ?>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>User Profile Update</title>
 </head>
+<?php include(__DIR__ . '/../sidebar.php'); ?>
 <body>
 <div class="container mt-4">
     <h2 class="mb-4">Update Profile</h2>

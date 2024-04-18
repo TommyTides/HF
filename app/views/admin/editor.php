@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <?php include(__DIR__ . '/general.php'); ?>
+    <?php //include(__DIR__ . '/general.php'); ?>
     <script src="https://cdn.tiny.cloud/1/emhhp6a4y93dpg1ws8u21xuqesaymzxz6jwv0rktrmbbb1p3/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script type="text/javascript" src="/js/components/tinymce-init.js"></script>
     <script type="text/javascript" src="/js/admin/createCustomPage.js"></script>
     <script type="text/javascript" src="/js/components/tinymce-functions.js" defer></script>
     <title>Page Editor</title>
 </head>
-<?php include __DIR__ . '/../sidebar.php'; ?>
+<?php //include __DIR__ . '/sidebar.php'; ?>
 <section id="page-menu" class="d-flex flex-row m-1">
 
     <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#confirmModal">Add New Page</button>
@@ -52,7 +52,4 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-
-<?php include(__DIR__ . '/../footer.php'); ?>
-
 

@@ -347,8 +347,10 @@ class AdminController
             $eventType = $this->danceTypeToInt($_POST["event_type"]);
             $artist->withAttr(null, $_POST["artist_name"], $_POST["first_name"], $_POST["last_name"], $_POST["biography"], $_POST["member_description"], $eventType);
             $this->artistService->insertArtist($artist);
+            require(__DIR__ . '/../views/admin/artists/index.php');
+
         }
-        require(__DIR__ . '/../views/admin/manageartists/addArtist.php');
+        require(__DIR__ . '/../views/admin/artists/addartist.php');
     }
 
     public function manageArtists()

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/css/adminsidebar.css">
+    <link rel="stylesheet" href="/css/admsidebar.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <?php include(__DIR__ . '/../general.php'); ?>
     <script type="text/javascript" src="/js/admin/exportData.js"></script>

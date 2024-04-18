@@ -4,7 +4,7 @@
 <head>
     <?php include(__DIR__ . '/../general.php'); ?>
 
-    <link rel="stylesheet" href="/css/adminsidebar.css">
+    <link rel="stylesheet" href="/css/admsidebar.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <title>Manage Users</title>

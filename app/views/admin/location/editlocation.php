@@ -2,10 +2,12 @@
 <html>
 
 <head>
+    <?php include(__DIR__ . '/../general.php'); ?>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/adminsidebar.css">
     <title>Edit Location</title>
 </head>
+<?php include(__DIR__ . '/../sidebar.php'); ?>
 <body>
 <div class="container">
     <h2>Edit Location</h2>
@@ -86,7 +88,6 @@
         </div>
     </form>
 </div>
-<?php include __DIR__ . '/../../footer.php'; ?>
 </body>
 
 </html>

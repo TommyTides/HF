@@ -3,6 +3,7 @@
 
 <head>
     <?php include(__DIR__ . '/../general.php'); ?>
+    <?php include __DIR__ . '/../sidebar.php'; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">

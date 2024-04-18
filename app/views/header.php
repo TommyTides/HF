@@ -5,11 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="/css/style.css" />
   <title>Web Design Mastery | HF</title>
 
   <script defer src="https://unpkg.com/scrollreveal"></script>
-  <script defer src="js/script.js"></script>
+  <script defer src="/js/script.js"></script>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         <a href="/" class="logo nav__logo">
           <!-- <a href="#">HF</a> -->
           <!-- logo png inserted -->
-          <img src="img/logo.png" alt="logo" />
+          <img src="/img/logo.png" alt="logo" />
 
         </a>
         <ul class="nav__links" id="nav-links">

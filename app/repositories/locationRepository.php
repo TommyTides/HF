@@ -18,7 +18,7 @@ class LocationRepository extends Repository
      * @throws Exception
      * @return array|null
      */
-    public function getAll(): array|null
+    public function getAll()
     {
         try {
             $stmt = $this->connection->prepare("SELECT * FROM `locations`");
@@ -26,11 +26,6 @@ class LocationRepository extends Repository
 
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\Location');
             $locations = $stmt->fetchAll();
-
-            if (empty($locations)) {
-                // handle empty result set
-                return array();
-            }
             return $locations;
         } catch (PDOException $e) {
             throw new Exception("Error getting all locations:" . $e->getMessage());

@@ -1,43 +1,5 @@
-<style>
-    .custom-sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 200px;
-        height: 100%;
-        background-color: #333; /* Dark background color */
-        z-index: 1000; /* Ensure it's on top of other content */
-        overflow-y: auto; /* Enable vertical scrolling if needed */
-        padding-top: 60px; /* Add padding to avoid covering content */
-    }
-
-    .custom-sidebar ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .custom-sidebar li {
-        padding: 8px 16px;
-        color: #fff; /* White text color */
-    }
-
-    .custom-sidebar a {
-        text-decoration: none;
-        color: #fff; /* White text color */
-    }
-
-    .custom-sidebar a:hover {
-        color: #007bff; /* Change color on hover */
-    }
-
-    .main-content {
-        margin-left: 220px; /* Adjust margin to accommodate sidebar */
-        padding-left: 20px; /* Add padding to avoid covering content */
-    }
-</style>
-
-<nav class="custom-sidebar">
+<link rel="stylesheet" type="text/css" href="/css/admsidebar.css">
+<nav class="sidebar">
     <ul>
         <li>
             <a href="/admin/orders">Orders</a>
@@ -74,3 +36,4 @@
         <li><a href="/admin/showApiKeys">Manage API Keys</a></li>
     </ul>
 </nav>
+

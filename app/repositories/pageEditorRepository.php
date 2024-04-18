@@ -108,9 +108,9 @@ class PageEditorRepository extends Repository
     public function getAllPagesWhereNameIsNotNull(): array|null
     {
         try {
-            $stmt = $this->connection->prepare("SELECT * FROM webpages WHERE name IS NOT NULL");
+            $stmt = $this->connection->prepare("SELECT * FROM webpages");
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_CLASS, 'Page');
+            return $stmt->fetchAll(PDO::FETCH_CLASS, 'App\\Models\\Page');
         } catch (PDOException $e) {
             echo $e->getMessage();
             return null;
