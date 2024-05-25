@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 
 :root {
   /* --primary-color: #0a1e27; */
-  --primary-color: #03426C;
+  --primary-color: #03426c;
   --secondary-color: #e9c675;
   --text-light: #cbd5e1;
   --white: #ffffff;
@@ -456,7 +457,7 @@ nav {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-.card {
+.css-card {
   position: relative;
   display: flex;
   align-items: flex-end;
@@ -471,11 +472,11 @@ nav {
     0 16px 16px rgba(0, 0, 0, 0.1);
 }
 @media (min-width: 600px) {
-  .card {
+  .css-card {
     height: 350px;
   }
 }
-.card:before {
+.css-card:before {
   content: "";
   position: absolute;
   top: 0;
@@ -487,7 +488,7 @@ nav {
   transition: transform calc(var(--d) * 1.5) var(--e);
   pointer-events: none;
 }
-.card:after {
+.css-card:after {
   content: "";
   display: block;
   position: absolute;
@@ -518,16 +519,16 @@ nav {
   transform: translateY(-50%);
   transition: transform calc(var(--d) * 2) var(--e);
 }
-.card:nth-child(1):before {
+.css-card:nth-child(1):before {
   background-image: url("../img/jazz.png");
 }
-.card:nth-child(2):before {
+.css-card:nth-child(2):before {
   background-image: url("../img/history.jpg");
 }
-.card:nth-child(3):before {
+.css-card:nth-child(3):before {
   background-image: url("../img/food.jpg");
 }
-.card:nth-child(4):before {
+.css-card:nth-child(4):before {
   background-image: url(https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
 }
 .content {
@@ -574,7 +575,7 @@ nav {
   outline-offset: 3px;
 }
 @media (hover: hover) and (min-width: 600px) {
-  .card:after {
+  .css-card:after {
     transform: translateY(0);
   }
   .content {
@@ -585,32 +586,32 @@ nav {
     transform: translateY(1rem);
     transition: transform var(--d) var(--e), opacity var(--d) var(--e);
   }
-  .card:hover,
-  .card:focus-within {
+  .css-card:hover,
+  .css-card:focus-within {
     align-items: center;
   }
-  .card:hover:before,
-  .card:focus-within:before {
+  .css-card:hover:before,
+  .css-card:focus-within:before {
     transform: translateY(-4%);
   }
-  .card:hover:after,
-  .card:focus-within:after {
+  .css-card:hover:after,
+  .css-card:focus-within:after {
     transform: translateY(-50%);
   }
-  .card:hover .content,
-  .card:focus-within .content {
+  .css-card:hover .content,
+  .css-card:focus-within .content {
     transform: translateY(0);
   }
-  .card:hover .content > *:not(.title),
-  .card:focus-within .content > *:not(.title) {
+  .css-card:hover .content > *:not(.title),
+  .css-card:focus-within .content > *:not(.title) {
     opacity: 1;
     transform: translateY(0);
     transition-delay: calc(var(--d) / 8);
   }
-  .card:focus-within:before,
-  .card:focus-within:after,
-  .card:focus-within .content,
-  .card:focus-within .content > *:not(.title) {
+  .css-card:focus-within:before,
+  .css-card:focus-within:after,
+  .css-card:focus-within .content,
+  .css-card:focus-within .content > *:not(.title) {
     transition-duration: 0s;
   }
 }
@@ -628,7 +629,6 @@ nav {
 /* Jazz schedule section */
 .schedule {
   padding: 20px;
-
 }
 
 .section__container {
@@ -645,7 +645,7 @@ nav {
 .schedule__card {
   width: 150px; /* Adjust as needed */
   height: 150px; /* Equal to width */
-  background-color: #C5A5DD;
+  background-color: #c5a5dd;
   border-radius: 8px;
   padding: 20px;
   display: flex;
@@ -743,7 +743,7 @@ nav {
 }
 
 .btn-add-to-cart:hover {
-  background-color: #218838; 
+  background-color: #218838;
 }
 
 /* artist section */
@@ -826,4 +826,127 @@ nav {
 .event__price {
   font-weight: bold;
   color: #007bff; /* or any other color you prefer */
+}
+
+/* CART */
+.container-custom {
+  background-color: transparent;
+  margin-top: 70px;
+  margin: 70px;
+}
+
+.card-custom-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.4rem;
+}
+
+.img-custom-sm {
+  width: 180px;
+  height: 180px;
+}
+
+.itemside-custom .info-custom {
+  padding-left: 15px;
+  padding-right: 7px;
+}
+
+.table-shopping-cart-custom .price-wrap-custom {
+  line-height: 1.2;
+}
+
+.table-shopping-cart-custom .price-custom {
+  font-weight: bold;
+  margin-right: 5px;
+  display: block;
+}
+
+.text-muted-custom {
+  color: #969696 !important;
+}
+
+a.no-decoration {
+  text-decoration: none !important;
+}
+
+.card-custom {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #7cb2ef;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0px;
+}
+
+.itemside-custom {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.dlist-align-custom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+[class*="dlist-"] {
+  margin-bottom: 5px;
+}
+
+.coupon-custom {
+  border-radius: 1px;
+}
+
+.price-custom {
+  font-weight: 600;
+  color: #212529;
+}
+
+.btn-custom.btn-out-custom {
+  outline: 1px solid #fff;
+  outline-offset: -5px;
+}
+
+.btn-main-custom {
+  border-radius: 2px;
+  text-transform: capitalize;
+  font-size: 15px;
+  padding: 10px 19px;
+  cursor: pointer;
+  color: #fff;
+  width: 100%;
+}
+
+.btn-light-remove {
+  color: #ffffff;
+  background-color: #f44336;
+  border-color: #f8f9fa;
+  font-size: 12px;
+}
+
+.btn-light-remove:hover {
+  color: #ffffff;
+  background-color: #f44336;
+  border-color: #f44336;
+}
+
+.btn-apply-custom {
+  font-size: 11px;
+  background-color: blue;
+}
+
+.btn-purchase {
+  background-color: blue;
+}
+
+.btn-continue-shopping {
+  background-color: green;
 }

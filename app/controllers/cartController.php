@@ -19,6 +19,11 @@ class CartController
         $this->orderService = new OrderService();
     }
 
+    public function index(): void
+    {
+        require_once(__DIR__ . '/../views/cart/shoppingcart.php');
+    }
+
     public function shoppingcart(): void
     {
         $productService = $this->productService;

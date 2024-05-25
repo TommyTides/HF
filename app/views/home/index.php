@@ -27,28 +27,28 @@ include __DIR__ . '/../header.php';
 
 <!-- Start main content -->
 <main class="page-content">
-  <div class="card">
+  <div class="css-card">
     <div class="content">
       <h2 class="title">Jazz</h2>
       <p class="copy">We are thrilled to bring you a weekend full of toe-tapping tunes and soulful melodies. Get ready to swing and sway as we take over the city with the smooth sound of jazz.</p>
       <a href="/jazz" class="btn-card-hover">View Artists</a>
     </div>
   </div>
-  <div class="card">
+  <div class="css-card">
     <div class="content">
       <h2 class="title">History</h2>
       <p class="copy">Immerse yourself in history with our historic walk, travel back in time, this tour aims to give all-round historic information about the city's landmark.</p>
       <button class="btn-card-hover">View Trips</button>
     </div>
   </div>
-  <div class="card">
+  <div class="css-card">
     <div class="content">
       <h2 class="title">Food</h2>
       <p class="copy">Welcome to Yummy, Haarlem's premier food festival! We are excited to showcase the delicious cuisine and vibrant culinary scene of our city.</p>
       <button class="btn-card-hover">Book Now</button>
     </div>
   </div>
-  <div class="card">
+  <div class="css-card">
     <div class="content">
       <h2 class="title">Your program</h2>
       <p class="copy">Create your own personal program and share it with your friends!</p>
