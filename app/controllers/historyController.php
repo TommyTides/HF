@@ -1,5 +1,6 @@
 <?php
 namespace App\Controllers;
+
 use App\Services\ProductService;
 use App\Services\LocationService;
 use App\Services\EventService;
@@ -8,33 +9,37 @@ use App\Services\PageEditorService;
 use App\Models\Location;
 use App\Models\Event;
 use App\Models\User;
+use App\Services\HistoryService;
+use DateTime;
 class historyController extends Controller
 {
     private ProductService $productService;
     private LocationService $locationService;
     private EventService $eventService;
-    private PageEditorService $pageEditorService;
-    private  HistoryService $historyService;
-    //private LocationService $locationService;
+    private HistoryService $historyService;
     function __construct()
     {
-        //$this->historyService = new HistoryService();
+        $this->historyService = new HistoryService();
         $this->locationService = new LocationService();
         $this->productService = new ProductService();
     }  
  
     public function index()
     {
-        //$event = $this->historyService->getEvent();
+            $event = $this->historyService->getEvent();
+        if ($event) {
+            $startDate = $this->convertDateTime($event['start_time']);
+            $endDate = $this->convertDateTime($event['end_time']);
+        } else {
+            // Handle the case where $event is false
+            $startDate = $endDate = null; // or some other default value
+        }
 
-        //$startDate = $this->convertDateTime($event['start_time']);
-        //$endDate = $this->convertDateTime($event['end_time']);
-
-        //$generalInfo = $this->historyService->getGeneralInformation();
-        //$locations = $this->historyService->getAllLocations();
-        //$schedule = $this->scheduleToArray();
-        //$output = $this->locationService->getSchedule();
-        //require(__DIR__ . '/../views/history/index.php');
+        $generalInfo = $this->historyService->getGeneralInformation();
+        $locations = $this->historyService->getAllLocations();
+        $schedule = $this->scheduleToArray();
+        $output = $this->locationService->getSchedule();
+        //require(__DIR__ . '/../views/historyevent/index.php');
 
         require __DIR__ . '/../views/history/index.php';
     }
@@ -83,13 +88,24 @@ class historyController extends Controller
 
         return $scheduleData;
     }
+    // public function convertDateTime($date)
+    // {
+    //     $dateString = $date;
+    //     $newDate = new DateTime($dateString);
+    //     $formattedDate = $newDate->format("D, jS F");
+    //     return $formattedDate;
+    // }
     public function convertDateTime($date)
-    {
-        $dateString = $date;
-        $newDate = new DateTime($dateString);
-        $formattedDate = $newDate->format("D, jS F");
-        return $formattedDate;
+{
+    if ($date) {
+        $newDate = new DateTime($date);
+        return $newDate->format("D, jS F");
+    } else {
+        // Handle the case where $date is null
+        return null; // or some other default value
     }
+}
+
 
     public function getTicketIdFromDB()
     {

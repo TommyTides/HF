@@ -1,4 +1,5 @@
 <?php
+namespace App\Services;
 use App\Repositories\HistoryRepository;
 use App\Models\Location;
 class HistoryService
