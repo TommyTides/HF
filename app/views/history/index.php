@@ -62,22 +62,20 @@ $locationService = new LocationService();
 <!-- End main content -->
 
 <div class="container mt-3 mb-3">
-    <?php
-    if (!empty($locations)) { 
-        foreach ($locations as $loc) { 
-            echo "<div style='display: flex; align-items: center; margin-bottom: 20px; width: 80%; height: 20vh; border: 1px solid #ccc; background-color: white;'>
-                    <div style='flex: 1; padding: 20px;'>
-                        <span class='fw-bold fs-5'>" . $loc->getName() . "</span>
-                        <p>" . $loc->getDescription() . "</p>
-                        <a href='history/location?id=" . $loc->getLocationId() . "' style='display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;'>View More</a>
-                    </div>
-                    <div style='flex: 1; display: flex; justify-content: center; align-items: center;'>
-                        <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/pno1fwAAAABJRU5ErkJggg==' alt='Blank Image' style='width: 200px; height: 200px; object-fit: cover;' />
-                    </div>
-                  </div>";
-        }
-    }
-    ?>
+    <?php if (!empty($locations)) : ?>
+        <?php foreach ($locations as $loc) : ?>
+            <div style="display: flex; align-items: center; margin-bottom: 20px; width: 80%; height: 20vh; border: 1px solid #ccc; background-color: white;">
+                <div style="flex: 1; padding: 20px;">
+                    <span class="fw-bold fs-5"><?php echo $loc->getName(); ?></span>
+                    <p><?php echo $loc->getDescription(); ?></p>
+                    <a href="history/location?id=<?php echo $loc->getLocationId(); ?>" style="display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">View More</a>
+                </div>
+                <div style="flex: 1; display: flex; justify-content: center; align-items: center;">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/pno1fwAAAABJRU5ErkJggg==" alt="Blank Image" style="width: 200px; height: 200px; object-fit: cover;" />
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
 </div>
 
 <section id="tour-schedule" class="d-flex justify-content-center flex-column">
