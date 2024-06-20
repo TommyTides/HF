@@ -1,6 +1,7 @@
 <!-- include header -->
 <?php
-include __DIR__ . '/../jazz_header.php';
+include __DIR__ . '/../history_header.php';
+
 ?>
 <div class="history-bg w-100">
     <div class="p-5 text-center bg-image header-image" style="
