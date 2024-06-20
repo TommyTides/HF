@@ -18,45 +18,47 @@ include __DIR__ . '/../jazz_header.php';
         </div>
     </div>
 
-    <section class="container d-flex mt-4 mb-4 flex-column history-bg">
-        <div class="row">
-            <div class="col">
-                <h2 class="fw-bold align-middle text-sm-left p-4 mb-3">Experience History</h2>
-            </div>
-            <div class="col-8 d-flex text-sm-right">
-                <p class="text-justify ps-sm-4">
-                    <? echo ($event['description']); ?>
-                </p>
-            </div>
+    <section class="container d-flex mt-4 mb-4 flex-column history-bg text-white">
+    <div class="row">
+        <div class="col">
+            <h2 class="fw-bold align-middle text-sm-left p-4 mb-3 text-white">Experience History</h2>
         </div>
-    </section>
-    <section class="row">
-        <h4 class="mb-3 fw-semibold text-center flex-sm-column header-subtitle">
-            <?php echo $startDate . " - " . $endDate; ?>
-        </h4>
+        <div class="col-8 d-flex text-sm-right">
+            <p class="text-justify ps-sm-4 text-white">
+                <?php echo ($event['description']); ?>
+            </p>
+        </div>
+    </div>
+</section>
+<section class="row text-white">
+    <h4 class="mb-3 fw-semibold text-center flex-sm-column header-subtitle text-white">
+        <?php echo $startDate . " - " . $endDate; ?>
+    </h4>
 
-        <div class="col d-flex mt-4 mb-4 flex-column">
-            <h3 class="fw-bold text-danger mb-3 text-center m-10 mb-md-0">General information</h3>
-        </div>
-        <div class="col-7">
-            <? if (!empty($generalInfo)) { ?>
-                <ul class="text-justify ps-md-4">
-                    <? foreach ($generalInfo as $info) { ?>
-                        <li class="mb-3">
-                            <? echo ($info['information']); ?>
-                        </li>
-                    <? } ?>
-                </ul>
-            <? } else { ?>
-                <p>No general information available.</p>
-            <? } ?>
-        </div>
-    </section>
+    <div class="col d-flex mt-4 mb-4 flex-column">
+        <h3 class="fw-bold text-danger mb-3 text-center m-10 mb-md-0 text-white">General information</h3>
+    </div>
+    <div class="col-7">
+        <?php if (!empty($generalInfo)) { ?>
+            <ul class="text-justify ps-md-4 text-white">
+                <?php foreach ($generalInfo as $info) { ?>
+                    <li class="mb-3 text-white">
+                        <?php echo ($info['information']); ?>
+                    </li>
+                <?php } ?>
+            </ul>
+        <?php } else { ?>
+            <p class="text-white">No general information available.</p>
+        <?php } ?>
+    </div>
+</section>
+
     <section id="featured-locations" class="d-flex justify-content-center flex-column">
         <div class="container mt-4 d-inline-flex flex-column justify-content-center">
             <div class="d-inline-flex mt-5 justify-content-center">
-                <p class="h1 text-black mt fw-bold mb-1">FEATURED&nbsp;</p>
-                <p class="h1 text-danger fw-bold mb-1">LOCATIONS</p>
+            <p class="h1 text-white mt fw-bold mb-1">FEATURED LOCATIONS</p>
+
+
             </div>
             <div class="d-inline-flex flex-column justify-content-center">
                 <div id="featured-locations-first-line" class="mb-2 mx-auto"></div>
@@ -108,8 +110,8 @@ include __DIR__ . '/../jazz_header.php';
     <section id="tour-schedule" class="d-flex justify-content-center flex-column">
         <div class="container mt-4 d-inline-flex flex-column justify-content-center">
             <div class="d-inline-flex mt-5 justify-content-center">
-                <p class="h1 text-black mt fw-bold mb-1">TOUR&nbsp;</p>
-                <p class="h1 text-danger fw-bold mb-1">SCHEDULE</p>
+            <p class="h1 text-white mt fw-bold mb-1">TOUR SCHEDULE</p>
+
             </div>
             <div class="d-inline-flex flex-column justify-content-center">
                 <div id="featured-locations-first-line" class="mb-2 mx-auto"></div>
@@ -160,8 +162,7 @@ include __DIR__ . '/../jazz_header.php';
     <section id="tour-schedule" class="d-flex justify-content-center flex-column">
         <div class="container mt-4 d-inline-flex flex-column justify-content-center">
             <div class="d-inline-flex mt-5 justify-content-center">
-                <p class="h1 text-black mt fw-bold mb-1">LOCATIONS&nbsp;</p>
-                <p class="h1 text-danger fw-bold mb-1">OVERVIEW</p>
+            <p class="h1 text-white mt fw-bold mb-1">LOCATIONS OVERVIEW</p>
             </div>
 
             <div class="d-inline-flex flex-column justify-content-center">
@@ -172,7 +173,7 @@ include __DIR__ . '/../jazz_header.php';
                 <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1ysxGDfG7GeKl77JNTwUEFKMa_ZV2qpk&ehbc=2E312F" width="1400" height="900"></iframe>
             </div>
             <div>
-                <p class="text-center mt-4">
+                <p class="text-center mt-4 text-white">
                     The tour begins at the Green point A (St Bavokerk) and ends at the Red point I. The break location
                     (Jopenkerk) is marked in Blue at point E.
                 </p>
