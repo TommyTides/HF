@@ -13,6 +13,8 @@
     <!-- Unicons CSS -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
     <link rel="stylesheet" href="/css/auth.css" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    </script>
 </head>
 
 <body>
@@ -69,7 +71,7 @@
                                             </div>
                                             <!-- password -->
                                             <div class="form-group mt-2">
-                                                <input type="password" name="password_Register" class="form-style" placeholder="Your Password" id="inputPassword2" autocomplete="off" >
+                                                <input type="password" name="password_Register" class="form-style" placeholder="Your Password" id="inputPassword2" autocomplete="off">
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
                                             <!-- city -->
@@ -102,6 +104,8 @@
                                                 <input type="text" name="state_Register" class="form-style" placeholder="Your State" id="inputState" autocomplete="off">
                                                 <i class="input-icon uil uil-home"></i>
                                             </div>
+                                            <!-- captcha -->
+                                            <div class="g-recaptcha m-3" name="g-recaptcha" data-type="image" data-sitekey="6Lct8bEkAAAAAPSup-kBG8amKcfTY_79Nz1CHAIB"></div>
                                             <button id="signUpBtn" name="signUpBtn" class="btn mt-4">submit</button>
                                         </div>
                                     </div>
@@ -116,6 +120,8 @@
     <script type="text/javascript" defer src="../../js/bootstrap.bundle.min.js"></script>
     <!-- <script type="text/javascript" defer src="../../js/login.js"></script> -->
     <script type="text/javascript" defer src="../../js/auth.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
+    </script>
 </body>
 
 </html>

@@ -33,10 +33,6 @@ class UserController
     {
         require_once(__DIR__ . "/../views/auth/auth.php");
     }
-    public function register()
-    {
-        require_once(__DIR__ . "/../views/register/index.php");
-    }
     public function forgotPassword()
     {
         require_once(__DIR__ . "/../views/forgotpassword/index.php");
@@ -72,7 +68,7 @@ class UserController
                     'user_type' => 1 // 1 = customer, 2 = admin, 3 = employee
                 );
             }
-            // $captcha = $this->verifyCaptcha();
+            $captcha = $this->verifyCaptcha();
             $captcha = true;
             if ($captcha) {
                 // Register user
@@ -280,8 +276,6 @@ class UserController
 
     public function updateuser()
     {
-        //echo '<pre>' . var_export($_SESSION, true) . '</pre>';
-
         if (isset($_SESSION['user'])) {
             $user = unserialize($_SESSION['user']);
 
