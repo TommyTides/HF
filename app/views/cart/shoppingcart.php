@@ -13,7 +13,7 @@ include __DIR__ . '/../cart_header.php';
                 </div>
                 <div class="item-name"><?php echo $item['name']; ?></div>
                 <div class="item-quantity">
-                    <input type="number" value="<?php echo $item['quantity']; ?>" min="1">
+                    <input id="quantity-<?= $item->getProductId() ?>" type="number" value="<?php echo $item['quantity']; ?>" min="1">
                 </div>
                 <div class="item-price">
                     <span class="original-price">$<?php echo $item['price']; ?></span>
