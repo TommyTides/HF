@@ -13,50 +13,54 @@ include __DIR__ . '/../jazz_header.php';
                 <h4 class="mb-3 fw-semibold header-subtitle">
                     <? echo ($event['sub_description']); ?>
                 </h4>
-                <a class="btn btn-outline-light btn-lg rounded-0" data-toggle="modal" data-target="#ticketSelector">BOOK YOUR TICKETS</a>
+                <div class="d-flex justify-content-center my-3">
+                    <a class="btn btn-outline-light btn-lg rounded-0 bg-white text-dark" data-toggle="modal"
+                        data-target="#ticketSelector">BOOK YOUR TICKETS</a>
+                </div>
+
             </div>
         </div>
     </div>
 
     <section class="container d-flex mt-4 mb-4 flex-column history-bg text-white">
-    <div class="row">
-        <div class="col">
-            <h2 class="fw-bold align-middle text-sm-left p-4 mb-3 text-white">Experience History</h2>
+        <div class="row">
+            <div class="col">
+                <h2 class="fw-bold align-middle text-sm-left p-4 mb-3 text-white">Experience History</h2>
+            </div>
+            <div class="col-8 d-flex text-sm-right">
+                <p class="text-justify ps-sm-4 text-white">
+                    <?php echo ($event['description']); ?>
+                </p>
+            </div>
         </div>
-        <div class="col-8 d-flex text-sm-right">
-            <p class="text-justify ps-sm-4 text-white">
-                <?php echo ($event['description']); ?>
-            </p>
-        </div>
-    </div>
-</section>
-<section class="row text-white">
-    <h4 class="mb-3 fw-semibold text-center flex-sm-column header-subtitle text-white">
-        <?php echo $startDate . " - " . $endDate; ?>
-    </h4>
+    </section>
+    <section class="row text-white">
+        <h4 class="mb-3 fw-semibold text-center flex-sm-column header-subtitle text-white">
+            <?php echo $startDate . " - " . $endDate; ?>
+        </h4>
 
-    <div class="col d-flex mt-4 mb-4 flex-column">
-        <h3 class="fw-bold text-danger mb-3 text-center m-10 mb-md-0 text-white">General information</h3>
-    </div>
-    <div class="col-7">
-        <?php if (!empty($generalInfo)) { ?>
-            <ul class="text-justify ps-md-4 text-white">
-                <?php foreach ($generalInfo as $info) { ?>
-                    <li class="mb-3 text-white">
-                        <?php echo ($info['information']); ?>
-                    </li>
-                <?php } ?>
-            </ul>
-        <?php } else { ?>
-            <p class="text-white">No general information available.</p>
-        <?php } ?>
-    </div>
-</section>
+        <div class="col d-flex mt-4 mb-4 flex-column">
+            <h3 class="fw-bold text-danger mb-3 text-center m-10 mb-md-0 text-white">General information</h3>
+        </div>
+        <div class="col-7">
+            <?php if (!empty($generalInfo)) { ?>
+                <ul class="text-justify ps-md-4 text-white">
+                    <?php foreach ($generalInfo as $info) { ?>
+                        <li class="mb-3 text-white">
+                            <?php echo ($info['information']); ?>
+                        </li>
+                    <?php } ?>
+                </ul>
+            <?php } else { ?>
+                <p class="text-white">No general information available.</p>
+            <?php } ?>
+        </div>
+    </section>
 
     <section id="featured-locations" class="d-flex justify-content-center flex-column">
         <div class="container mt-4 d-inline-flex flex-column justify-content-center">
             <div class="d-inline-flex mt-5 justify-content-center">
-            <p class="h1 text-white mt fw-bold mb-1">FEATURED LOCATIONS</p>
+                <p class="h1 text-white mt fw-bold mb-1">FEATURED LOCATIONS</p>
 
 
             </div>
@@ -85,14 +89,17 @@ include __DIR__ . '/../jazz_header.php';
                                             <? echo $loc['description'] ?>
                                         </p>
                                         <div class="col-md-12 ">
-                                            <h5 class="p-2 m-4 mt-5">Learn more <a href="https://en.wikipedia.org/wiki/Church_of_St._Bavo,_Haarlem" target="_blank"><i class="fa fa-chevron-right"></i></a></h5>
+                                            <h5 class="p-2 m-4 mt-5">Learn more <a
+                                                    href="https://en.wikipedia.org/wiki/Church_of_St._Bavo,_Haarlem"
+                                                    target="_blank"><i class="fa fa-chevron-right"></i></a></h5>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <img src="../../img/<? if (!empty($loc['image'])) {
-                                                                echo $loc['image'];
-                                                            } else
-                                                                echo "no-image.jpg"; ?>" class="img-fluid" style="width: 100%; height: 80%;">
+                                            echo $loc['image'];
+                                        } else
+                                            echo "no-image.jpg"; ?>" class="img-fluid"
+                                            style="width: 100%; height: 80%;">
                                     </div>
                                 </div>
                             </div>
@@ -103,14 +110,14 @@ include __DIR__ . '/../jazz_header.php';
                         <p>No locations available.</p>
                     <? } ?>
 
-                        </a>
-                </ol>
+                </a>
+            </ol>
         </div>
     </section>
     <section id="tour-schedule" class="d-flex justify-content-center flex-column">
         <div class="container mt-4 d-inline-flex flex-column justify-content-center">
             <div class="d-inline-flex mt-5 justify-content-center">
-            <p class="h1 text-white mt fw-bold mb-1">TOUR SCHEDULE</p>
+                <p class="h1 text-white mt fw-bold mb-1">TOUR SCHEDULE</p>
 
             </div>
             <div class="d-inline-flex flex-column justify-content-center">
@@ -122,7 +129,7 @@ include __DIR__ . '/../jazz_header.php';
                     <thead>
                         <tr>
                             <th></th>
-                            <?php foreach (array_keys(reset($schedule)) as $date) : ?>
+                            <?php foreach (array_keys(reset($schedule)) as $date): ?>
                                 <th>
                                     <?php echo date('l, F j, Y', strtotime($date)) ?>
                                 </th>
@@ -130,20 +137,21 @@ include __DIR__ . '/../jazz_header.php';
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($schedule as $time => $dates) : ?>
+                        <?php foreach ($schedule as $time => $dates): ?>
                             <tr>
                                 <th>
                                     <?php echo $time ?>
                                 </th>
-                                <?php foreach ($dates as $date => $languages) : ?>
+                                <?php foreach ($dates as $date => $languages): ?>
                                     <td class="p-3">
                                         <?php
                                         $languages_array = is_array($languages) ? $languages : explode(',', $languages); // split the language string by comma and create an array of languages
-                                        foreach ($languages_array as $language) :
+                                        foreach ($languages_array as $language):
                                             $language = trim($language); // remove any leading/trailing spaces
                                             $flag_path = '../../img/historyimages/' . strtolower($language) . '.png';
-                                        ?>
-                                            <img class="m-2" src="<?php echo $flag_path; ?>" alt="<?php echo $language; ?> flag" width="90vw">
+                                            ?>
+                                            <img class="m-2" src="<?php echo $flag_path; ?>" alt="<?php echo $language; ?> flag"
+                                                width="90vw">
                                         <?php endforeach; ?>
                                     </td>
 
@@ -162,7 +170,7 @@ include __DIR__ . '/../jazz_header.php';
     <section id="tour-schedule" class="d-flex justify-content-center flex-column">
         <div class="container mt-4 d-inline-flex flex-column justify-content-center">
             <div class="d-inline-flex mt-5 justify-content-center">
-            <p class="h1 text-white mt fw-bold mb-1">LOCATIONS OVERVIEW</p>
+                <p class="h1 text-white mt fw-bold mb-1">LOCATIONS OVERVIEW</p>
             </div>
 
             <div class="d-inline-flex flex-column justify-content-center">
@@ -170,7 +178,8 @@ include __DIR__ . '/../jazz_header.php';
                 <div id="featured-locations-last-line" class="mb-2 mx-auto"></div>
             </div>
             <div class="container d-flex mt-4 mb-4 flex-column">
-                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1ysxGDfG7GeKl77JNTwUEFKMa_ZV2qpk&ehbc=2E312F" width="1400" height="900"></iframe>
+                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1qwZ9hJVON-v68Y74zsySv21h0k1Lcrw&ehbc=2E312F"
+                    width="1300" height="680"></iframe>
             </div>
             <div>
                 <p class="text-center mt-4 text-white">
@@ -179,7 +188,8 @@ include __DIR__ . '/../jazz_header.php';
                 </p>
             </div>
         </div>
-        <div class="modal" id="ticketSelector" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal" id="ticketSelector" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -231,10 +241,13 @@ include __DIR__ . '/../jazz_header.php';
                             <div class="row d-flex justify-content-center align-items-center">
                                 <div class="col">
                                     <h5>Quantity</h5>
-                                    <input type="number" name="input-quantity" id="input-quantity" value="1" min="1" max="10">
+                                    <input type="number" name="input-quantity" id="input-quantity" value="1" min="1"
+                                        max="10">
                                 </div>
                                 <div class="col">
-                                    <button type="submit" class="btn btn-warning rounded-0 fw-semibold" onclick="addToCartFromHistory(event)" id="btn-history-ticket" data-product-quantity="1" name="addToCart"><strong>Add To
+                                    <button type="submit" class="btn btn-warning rounded-0 fw-semibold"
+                                        onclick="addToCartFromHistory(event)" id="btn-history-ticket"
+                                        data-product-quantity="1" name="addToCart"><strong>Add To
                                             Cart</strong></button>
                                 </div>
                             </div>
