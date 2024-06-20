@@ -189,12 +189,12 @@ include __DIR__ . '/../history_header.php';
                 </p>
             </div>
         </div>
-        <div class="modal" id="ticketSelector" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        <div class="modal" style="color:black" id="ticketSelector" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">A stroll through History - Ticket</h5>
+                        <h5 class="dark modal-title" id="exampleModalLongTitle">A stroll through History - Ticket</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -231,10 +231,10 @@ include __DIR__ . '/../history_header.php';
                                 <div class="col m-3">
                                     <h5>Date</h5>
                                     <select name="dateSelectors" id="dateSelector">
-                                        <option value="2023-07-27">27-07-2023</option>
-                                        <option value="2023-07-28">28-07-2023</option>
-                                        <option value="2023-07-29">29-07-2023</option>
-                                        <option value="2023-07-30">30-07-2023</option>
+                                        <option value="2023-07-27">26-07-2023</option>
+                                        <option value="2023-07-28">27-07-2023</option>
+                                        <option value="2023-07-29">28-07-2023</option>
+                                        <option value="2023-07-30">29-07-2023</option>
                                     </select>
                                 </div>
                             </div>

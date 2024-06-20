@@ -196,25 +196,6 @@ $locationService = new LocationService();
                             } ?>">
                         </div>
                     </section>
-                    <div class="container p-5 mb-5">
-                        <h4>Location Overview</h4>
-                        <div id="maps" class="d-flex justify-content-center align-items-center" style="height: 50vh;"></div>
-                    </div>
-                    <div width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true">
-                        <blockquote class="instagram-media" data-instgrm-captioned
-                            data-instgrm-permalink="https://www.instagram.com/explore/tags/Amsterdam/"
-                            data-instgrm-version="13"></blockquote>
-                    </div>
-                    <script>
-                        var userFeed = new Instafeed({
-                            get: 'user',
-                            target: "instafeed-container",
-                            resolution: 'low_resolution',
-                            accessToken: '161941766350317|C7999iDUM25bu36g82evPvTK3pw'
-                        });
-                        userFeed.run();
-                    </script>
-                </div>
             </section>
         </div>
     </main>

@@ -39,7 +39,7 @@ include __DIR__ . '/../header.php';
       <div class="content">
         <h2 class="title">History</h2>
         <p class="copy">Immerse yourself in history with our historic walk, travel back in time, this tour aims to give all-round historic information about the city's landmark.</p>
-        <button class="btn-card-hover">View Trips</button>
+        <a href="/history" class="btn-card-hover">View Trips</a>
       </div>
     </div>
   <div>
