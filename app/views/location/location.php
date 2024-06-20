@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../header.php';
+include __DIR__ . '/../jazz_header.php';
 use App\Services\LocationService;
 $locationService = new LocationService();
 ?>
@@ -70,7 +70,7 @@ $locationService = new LocationService();
 <body onload="initMap('<?php echo $location->getAddress1() . ', ' . $location->getPostalCode() ?>')">
     <header>
         <div class="p-5 text-center bg-image header-image" style="
-              background-image: url('../../images/<?php if (!empty($images[0])) {
+              background-image: url('../../img/<?php if (!empty($images[0])) {
                   echo $images[0]->getImage();
               } else {
                   echo 'no-image.png';
@@ -105,7 +105,7 @@ $locationService = new LocationService();
                             <?= $location->getDescription() ?>
                         </p>
                     </div>
-                    <div class="col-5 img-thumbnail" style="background-size: cover; background-image: url('/images/<?php
+                    <div class="col-5 img-thumbnail" style="background-size: cover; background-image: url('/img/<?php
                     if (!empty($images[1])) {
                         echo $images[1]->getImage();
                     } else {
@@ -176,19 +176,19 @@ $locationService = new LocationService();
                     <section class="container bg-light p-4">
                         <h4>Location Pictures</h4>
                         <div class="d-flex flex-row justify-content-evenly">
-                            <img class="img-thumbnail" style="max-width: 30%;" src="../../images/<?php
+                            <img class="img-thumbnail" style="max-width: 30%;" src="../../img/<?php
                             if (!empty($images[2])) {
                                 echo $images[2]->getImage();
                             } else {
                                 echo 'no-image.png';
                             } ?>">
-                            <img class="img-thumbnail" style="max-width: 30%;" src="../../images/<?php
+                            <img class="img-thumbnail" style="max-width: 30%;" src="../../img/<?php
                             if (!empty($images[3])) {
                                 echo $images[3]->getImage();
                             } else {
                                 echo 'no-image.png';
                             } ?>">
-                            <img class="img-thumbnail" style="max-width: 30%;" src="../../images/<?php
+                            <img class="img-thumbnail" style="max-width: 30%;" src="../../img/<?php
                             if (!empty($images[4])) {
                                 echo $images[4]->getImage();
                             } else {

@@ -69,24 +69,24 @@ class CartController
 
     public function checkout(): void
     {
-        // // Get data of products in shopping cart to load into view
-        // $cartProducts = $this->productService->getCartProducts();
+        // Get data of products in shopping cart to load into view
+        $cartProducts = $this->productService->getCartProducts();
 
-        // if ($cartProducts == null) {
-        //     header('location: /cart/index');
-        //     return;
-        // }
+        if ($cartProducts == null) {
+            header('location: /cart/index');
+            return;
+        }
 
-        // // Get user data
-        // if (isset($_SESSION['user'])) {
-        //     $user = unserialize($_SESSION['user']);
-        // } else {
-        //     $user = null;
-        // }
+        // Get user data
+        if (isset($_SESSION['user'])) {
+            $user = unserialize($_SESSION['user']);
+        } else {
+            $user = null;
+        }
 
-        // // Get the subtotal, shipping cost and total to display
-        // $subtotal = $this->productService->getSubtotalPrice($cartProducts);
-        // $total = $this->productService->getTotalPrice($cartProducts);
+        // Get the subtotal, shipping cost and total to display
+        $subtotal = $this->productService->getSubtotalPrice($cartProducts);
+        $total = $this->productService->getTotalPrice($cartProducts);
 
         require_once(__DIR__ . '/../views/cart/checkout.php');
     }

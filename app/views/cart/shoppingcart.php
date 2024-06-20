@@ -30,10 +30,10 @@ include __DIR__ . '/../cart_header.php';
             <span class="label">Subtotal:</span>
             <span class="value">$<?php echo $subtotal; ?></span>
         </div>
-        <div class="tax">
+        <!-- <div class="tax">
             <span class="label">Tax:</span>
             <span class="value">$<?php echo $tax; ?></span>
-        </div>
+        </div> -->
         <div class="total">
             <span class="label">Total:</span>
             <span class="value">$<?php echo $total; ?></span>
