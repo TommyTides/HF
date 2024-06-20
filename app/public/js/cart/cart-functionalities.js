@@ -15,7 +15,6 @@ function add_product($id, $price) {
       product_quantity: $quantity,
     },
     success: function (reply) {
-      //$cartcount.textContent = reply;
       console.log(reply);
     },
     error: function (req, status, error) {
