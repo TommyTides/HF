@@ -31,7 +31,7 @@ class UserController
     }
     public function login()
     {
-        require_once(__DIR__ . "/../views/login/index.php");
+        require_once(__DIR__ . "/../views/auth/auth.php");
     }
     public function register()
     {
@@ -145,7 +145,7 @@ class UserController
 
             if (isset($user) && $user->getEmail() == $email) {
 
-                require __DIR__ . '/../views/forgotpassword/emailsent.php';
+                // require __DIR__ . '/../views/forgotpassword/emailsent.php';
                 //generate token
                 $token = bin2hex(random_bytes(20));
                 $this->userService->insertTokenIntoDB($token, $email);
@@ -169,6 +169,8 @@ class UserController
         try {
             require __DIR__ . '/../config/phpmailerconfig.php';
             // Instantiate a new PHPMailer object
+            $password = "yulluukxntwpynyd";
+            $email = "hfestivalphp@gmail.com";
             $mail = new PHPMailer;
             // Set the mailer to use SMTP
             $mail->isSMTP();
@@ -251,7 +253,7 @@ class UserController
         }
         $this->userService->resetPassword($email, $newPassword);
         echo "<script>alert('Password reset successfully.');</script>";
-        echo "<script>location.href='/user/login'</script>";
+        echo "<script>location.href='/user/auth'</script>";
     }
 
     public function account()

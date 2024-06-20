@@ -1098,3 +1098,13 @@ label.radio input:checked + span {
   overflow: hidden;
 }
 /* End Cart */
+
+/* /user/forgotPassword */
+.logo-resize-pw {
+  /* resize image to 250 x 100 px */
+  max-width: 250px;
+}
+
+.fpw-body {
+  max-width: 75%;
+}
