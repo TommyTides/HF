@@ -29,7 +29,7 @@ include __DIR__ . '/../cart_header.php';
                 }
                 ?>
             </div>
-            <div class="content">
+            <div class="content-cart">
                 <div class="row">
                     <div class="col-md-12 col-lg-9">
                         <div class="items" id="items">

@@ -818,129 +818,6 @@ nav {
   color: #007bff; /* or any other color you prefer */
 }
 
-/* CART */
-.container-custom {
-  /* background-color: transparent; */
-  margin-top: 70px;
-  margin: 70px;
-}
-
-.card-custom-body {
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  padding: 1.4rem;
-}
-
-.img-custom-sm {
-  width: 180px;
-  height: 180px;
-}
-
-.itemside-custom .info-custom {
-  padding-left: 15px;
-  padding-right: 7px;
-}
-
-.table-shopping-cart-custom .price-wrap-custom {
-  line-height: 1.2;
-}
-
-.table-shopping-cart-custom .price-custom {
-  font-weight: bold;
-  margin-right: 5px;
-  display: block;
-}
-
-.text-muted-custom {
-  color: #969696 !important;
-}
-
-a.no-decoration {
-  text-decoration: none !important;
-}
-
-.card-custom {
-  position: relative;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #7cb2ef;
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0px;
-}
-
-.itemside-custom {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-}
-
-.dlist-align-custom {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-[class*="dlist-"] {
-  margin-bottom: 5px;
-}
-
-.coupon-custom {
-  border-radius: 1px;
-}
-
-.price-custom {
-  font-weight: 600;
-  color: #212529;
-}
-
-.btn-custom.btn-out-custom {
-  outline: 1px solid #fff;
-  outline-offset: -5px;
-}
-
-.btn-main-custom {
-  border-radius: 2px;
-  text-transform: capitalize;
-  font-size: 15px;
-  padding: 10px 19px;
-  cursor: pointer;
-  color: #fff;
-  width: 100%;
-}
-
-.btn-light-remove {
-  color: #ffffff;
-  background-color: #f44336;
-  border-color: #f8f9fa;
-  font-size: 12px;
-}
-
-.btn-light-remove:hover {
-  color: #ffffff;
-  background-color: #f44336;
-  border-color: #f44336;
-}
-
-.btn-apply-custom {
-  font-size: 11px;
-  background-color: blue;
-}
-
-.btn-purchase {
-  background-color: blue;
-}
-
-.btn-continue-shopping {
-  background-color: green;
-}
-
 /* Start Checkout */
 .payment-info {
   background: blue;
@@ -959,7 +836,7 @@ body {
 }
 
 .cart {
-  background: #fff;
+  background: white;
 }
 
 .p-about {
@@ -1059,14 +936,6 @@ label.radio input:checked + span {
 }
 
 /* End Checkout */
-
-/* Start Cart */
-.cart-bg-primary {
-  background-color: var(--primary-color);
-  /* background-image: linear-gradient(to right, #CFB8FF, #FFC8E8, #FEE8AF); */
-  overflow: hidden;
-}
-/* End Cart */
 
 /* Start dance */
 .dance_fullwidth {
