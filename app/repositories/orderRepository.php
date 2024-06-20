@@ -6,8 +6,6 @@ use PDOException;
 
 use App\Models\Order;
 
-require_once(__DIR__ . '/../models/Order.php');
-
 class OrderRepository extends Repository
 {
 
@@ -211,7 +209,7 @@ class OrderRepository extends Repository
             $stmt = $this->connection->prepare("SELECT * FROM orders WHERE email = :email");
             $stmt->bindParam(':email', $email);
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, "Order");
+            $stmt->setFetchMode(PDO::FETCH_CLASS, "App\\Models\\Order");
             return $stmt->fetchAll();
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -230,7 +228,7 @@ class OrderRepository extends Repository
             $stmt = $this->connection->prepare("SELECT * FROM orders WHERE mollie_id = :mollie_id");
             $stmt->bindParam(':mollie_id', $mollieID);
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, "Order");
+            $stmt->setFetchMode(PDO::FETCH_CLASS, "App\\Models\\Order");
             return $stmt->fetch();
         } catch (PDOException $e) {
             echo $e->getMessage();

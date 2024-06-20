@@ -13,7 +13,7 @@ class QRCodeService
         $writer = new PngWriter();
 
         // Create QR code
-        $qrCode = QrCode::create('https://thefestival.ngrok.app/order/updateTicketStatus/?productID='.$productId.'&orderID='.$orderId)
+        $qrCode = QrCode::create('https://crab-better-presumably.ngrok-free.app/order/updateTicketStatus/?productID='.$productId.'&orderID='.$orderId)
             ->setEncoding(new Encoding('UTF-8'))
             ->setSize(150)
             ->setMargin(10)
@@ -22,7 +22,7 @@ class QRCodeService
 
             //save file
             $result = $writer->write($qrCode);
-            $result->saveToFile(__DIR__ . '/../public/images/qrcode.png');
+            $result->saveToFile(__DIR__ . '/../public/img/qrcode.png');
 
         // Generate the QR code image as binary data
        $ticketQRCodImage='data:image/png;base64,' . base64_encode($writer->write($qrCode,null,null)->getString());

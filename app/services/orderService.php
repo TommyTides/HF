@@ -100,7 +100,8 @@ class OrderService
                     ) // You must send the correct number of decimals, thus we enforce the use of strings
                 ],
                 "description" => "$description",
-                "redirectUrl" => "https://thefestival.ngrok.app/cart/process",
+                // "redirectUrl" => "https://thefestival.ngrok.app/cart/process",
+                "redirectUrl" => "https://crab-better-presumably.ngrok-free.app/cart/process",
                 "locale" => "en_US",
                 "dueDate" => date('Y-m-d', strtotime('+1 day')), // Set the due date
             ]);

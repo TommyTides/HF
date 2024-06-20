@@ -4,12 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <?php include(__DIR__ . '/headgeneralinfo.php'); ?>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <!-- Font Awesome CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/style.css" />
-  <title>Web Design Mastery | HF</title>
+  <!--Delete the below line later. Only used for auto complete temporarily-->
+  <link rel="stylesheet" type="text/css" href="../../public/css/bootstrap.min.css">
+  <script rel="text/javascript" defer src="/js/checkout/toggle_checkout_options.js"></script>
+  <script rel="text/javascript" defer src="/js/user/fetchcountries.js"></script>
+  <script rel="text/javascript" defer src="/js/user/countryautocomplete.js"></script>
+  <title>Checkout</title>
 
   <script defer src="https://unpkg.com/scrollreveal"></script>
   <script defer src="/js/script.js"></script>
