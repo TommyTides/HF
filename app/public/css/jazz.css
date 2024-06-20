@@ -832,7 +832,8 @@ nav {
 }
 
 body {
-  background: #eee;
+  background: #03426c;
+  color: #fff;
 }
 
 .cart {
@@ -1244,4 +1245,29 @@ label.radio input:checked + span {
 
 .history-bg {
   background-color: #03426c;
+}
+
+/* jazz */
+/* #featured-artists {
+  background: #600808;
+} */
+
+#featured-artists-first-line {
+  height: 4px;
+  width: 27vw;
+  max-width: 365px;
+  min-width: 260px;
+  background: #D9B448;
+}
+
+#featured-artists-last-line {
+  height: 4px;
+  width: 20vw;
+  max-width: 260px;
+  min-width: 200px;
+  background: #D9B448;
+}
+
+.text-gold {
+  color: #D9B448;
 }

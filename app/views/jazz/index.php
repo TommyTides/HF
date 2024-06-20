@@ -7,7 +7,7 @@ include __DIR__ . '/../jazz_header.php';
 ?>
 
 <!-- Start description section -->
-<section class="about">
+<!-- <section class="about">
   <div class="section__container about__container">
     <div class="about__image about__image-1" id="about">
       <img src="img/about-1.jpg" alt="about" />
@@ -26,7 +26,10 @@ include __DIR__ . '/../jazz_header.php';
       </div>
     </div>
   </div>
-</section>
+</section> -->
+<div id="introduction">
+  <?= $html ?>
+</div>
 <!-- End description section -->
 
 <!-- Start main content -->
@@ -38,6 +41,10 @@ include __DIR__ . '/../jazz_header.php';
         <a href="/jazz" class="schedule__card">
           <h3 class="schedule__day">All Artists</h3>
         </a>
+        <a href="/jazz?day=26" class="schedule__card">
+          <h3 class="schedule__day">Thu</h3>
+          <p class="schedule__number">26</p>
+        </a>
         <a href="/jazz?day=27" class="schedule__card">
           <h3 class="schedule__day">Thu</h3>
           <p class="schedule__number">27</p>
@@ -45,14 +52,6 @@ include __DIR__ . '/../jazz_header.php';
         <a href="/jazz?day=28" class="schedule__card">
           <h3 class="schedule__day">Fri</h3>
           <p class="schedule__number">28</p>
-        </a>
-        <a href="/jazz?day=29" class="schedule__card">
-          <h3 class="schedule__day">Sat</h3>
-          <p class="schedule__number">29</p>
-        </a>
-        <a href="/jazz?day=30" class="schedule__card">
-          <h3 class="schedule__day">Sun</h3>
-          <p class="schedule__number">30</p>
         </a>
       </div>
     </div>
@@ -75,7 +74,7 @@ include __DIR__ . '/../jazz_header.php';
           if ($image && $image->getImage()) {
             // If image exists
           ?>
-            <img src="<?= "img/" . $image->getImage(); ?>" alt="artist" class="artist__image" />
+            <img src="<?= "img/jazz/" . $image->getImage(); ?>" alt="artist" class="artist__image" />
           <?php
           } else {
             // If no image is available

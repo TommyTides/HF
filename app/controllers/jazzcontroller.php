@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Controllers;
-
 
 use App\Services\ProductService;
 use App\Services\LocationService;
@@ -33,6 +31,14 @@ class JazzController extends Controller
 
     public function index()
     {
+        $path = '/jazz/index';
+        $landingcontainer = "#introduction";
+        if ($path !== null) {
+            $html = $this->pageEditorService->retrievePage($path, $landingcontainer);
+        } else {
+            $html = "This page does not exist.";
+        }
+
         // if "event" is set in the URL, show the event page
         if (isset($_GET['event'])) {
             $this->event();

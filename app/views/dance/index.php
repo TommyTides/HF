@@ -6,35 +6,35 @@ use App\Services\LocationService;
 include __DIR__ . '/../jazz_header.php';
 ?>
 <div id="landing-container">
-        <?= $html ?>
-    </div>
+  <?= $html ?>
+</div>
 <!-- Start description section -->
 <section class="dance_fullwidth dance_smooth_scroll dance_franklin_gothic">
   <section class="dance_padding_large">
     <p id="lineup" class="dance_header">LINEUP</p>
     <hr class="dance_fullwidth dance_thick_hr">
     <div class="dance_box_container">
-  <?php
-  foreach ($artists as $artist) {
-    if ($artist->getEventType() == 1) {
-      $name = $artist->getArtistName();
-      $filepath = str_replace(' ', '', $name);
-  ?>
-      <div class="dance_box">
-        <div class="dance_artist_card">
-          <div class="dance_imgBx">
-            <a href="/dance/artistPage?id=<?= $artist->getArtistId() ?>"><img src="/img/dance/thumbnail-<?= $filepath ?>.png" alt="<?= $name ?>"></a>
+      <?php
+      foreach ($artists as $artist) {
+        if ($artist->getEventType() == 1) {
+          $name = $artist->getArtistName();
+          $filepath = str_replace(' ', '', $name);
+      ?>
+          <div class="dance_box">
+            <div class="dance_artist_card">
+              <div class="dance_imgBx">
+                <a href="/dance/artistPage?id=<?= $artist->getArtistId() ?>"><img src="/img/dance/thumbnail-<?= $filepath ?>.png" alt="<?= $name ?>"></a>
+              </div>
+              <div class="dance_artist_details">
+                <h2><?= $name ?></a><br><span>TRANCE</span></h2>
+              </div>
+            </div>
           </div>
-          <div class="dance_artist_details">
-            <h2><?= $name ?></a><br><span>TRANCE</span></h2>
-          </div>
-        </div>
-      </div>
-  <?php
-    }
-  }
-  ?>
-</div>
+      <?php
+        }
+      }
+      ?>
+    </div>
 
     <!-- Venues -->
     <div id="venues" class="dance_venue_height">
@@ -115,8 +115,12 @@ include __DIR__ . '/../jazz_header.php';
     </div>
   </section>
 </section>
-
 <!-- End description section -->
+
+<!-- Ticket container -->
+<div id="ticket-container" style="padding-left: 130px; padding-right: 130px;">
+  <?= $html2 ?>
+</div>
 
 <!-- include footer -->
 <?php
