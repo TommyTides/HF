@@ -5,15 +5,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
-  <?php include(__DIR__ . '/../headgeneralinfo.php'); ?>
+  <?php include(__DIR__ . '/headgeneralinfo.php'); ?>
   <!--Delete the below line later. Only used for auto complete temporarily-->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <!--Delete the below line later. Only used for auto complete temporarily-->
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 
+
   <!-- Font Awesome CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/jazz.css" />
+  <link rel="stylesheet" type="text/css" href="/css/historyevent/style.css">
   <title>Haarlem Festival | HF</title>
 
   <script defer src="https://unpkg.com/scrollreveal"></script>

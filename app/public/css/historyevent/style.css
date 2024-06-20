@@ -1,0 +1,62 @@
+
+.header-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 78vh;
+  }
+  
+  .header-title {
+    padding-top: 35vh;
+  }
+  
+  .header-subtitle {
+    background-color: white;
+    color: black;
+    padding: 4px 10px 5px 10px;
+  }
+  
+  .jazz-intro-title {
+    background: linear-gradient(180deg, #A60303 36.46%, #FF0000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  #featured-locations-first-line {
+    height: 4px;
+    width: 27vw;
+    max-width: 365px;
+    min-width: 260px;
+    background: #d54343;
+    z-index: 1;
+  }
+  
+  #featured-locations-last-line {
+    height: 4px;
+    width: 20vw;
+    max-width: 260px;
+    min-width: 200px;
+    background: #d54343;
+  }
+  
+  .text-red {
+    color: #600808;
+  }
+  a.custom-card,
+  a.custom-card:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .table img {
+    width: 60px; /* Adjust the width to your desired size */
+    height: auto; /* This maintains the aspect ratio */
+    max-width: 100%; /* Ensure the image doesn't exceed the cell's width */
+  }
+
+
+#btn-history-ticket {
+    background-color: gray !important;
+    border-color: gray !important;
+}

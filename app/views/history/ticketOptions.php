@@ -23,7 +23,7 @@
                 <div class="col">
                     <h4>Ticket Type</h4>
                     <select name="ticketSelector" id="">
-                        <option value="regular">Regular Ticket: €15:00</option>
+                        <option value="regular">Regular Ticket: €17:50</option>
                         <option value="family">2</option>
                     </select>
                 </div>
