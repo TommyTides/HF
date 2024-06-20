@@ -1,22 +1,20 @@
 <?php
 namespace App\Controllers;
 
-use App\Services\ProductService;
-use App\Services\LocationService;
-use App\Services\EventService;
-use App\Services\ArtistService;
-use App\Services\PageEditorService;
-use App\Models\Location;
-use App\Models\Event;
 use App\Models\User;
 use App\Services\HistoryService;
+use App\Services\ProductService;
+use App\Services\LocationService;
+use App\Models\Location;
 use DateTime;
-class historyController extends Controller
+use stdClass;
+use Exception;
+
+class HistoryController extends Controller
 {
-    private ProductService $productService;
+    protected $historyService;
+    protected $productService;
     private LocationService $locationService;
-    private EventService $eventService;
-    private HistoryService $historyService;
     function __construct()
     {
         $this->historyService = new HistoryService();
@@ -26,22 +24,16 @@ class historyController extends Controller
  
     public function index()
     {
-            $event = $this->historyService->getEvent();
-        if ($event) {
-            $startDate = $this->convertDateTime($event['start_time']);
-            $endDate = $this->convertDateTime($event['end_time']);
-        } else {
-            // Handle the case where $event is false
-            $startDate = $endDate = null; // or some other default value
-        }
+        $event = $this->historyService->getEvent();
+
+        $startDate = $this->convertDateTime($event['start_time']);
+        $endDate = $this->convertDateTime($event['end_time']);
 
         $generalInfo = $this->historyService->getGeneralInformation();
         $locations = $this->historyService->getAllLocations();
         $schedule = $this->scheduleToArray();
         $output = $this->locationService->getSchedule();
-        //require(__DIR__ . '/../views/historyevent/index.php');
-
-        require __DIR__ . '/../views/history/index.php';
+        require(__DIR__ . '/../views/history/index.php');
     }
     public function location()
     {
@@ -88,24 +80,13 @@ class historyController extends Controller
 
         return $scheduleData;
     }
-    // public function convertDateTime($date)
-    // {
-    //     $dateString = $date;
-    //     $newDate = new DateTime($dateString);
-    //     $formattedDate = $newDate->format("D, jS F");
-    //     return $formattedDate;
-    // }
     public function convertDateTime($date)
-{
-    if ($date) {
-        $newDate = new DateTime($date);
-        return $newDate->format("D, jS F");
-    } else {
-        // Handle the case where $date is null
-        return null; // or some other default value
+    {
+        $dateString = $date;
+        $newDate = new DateTime($dateString);
+        $formattedDate = $newDate->format("D, jS F");
+        return $formattedDate;
     }
-}
-
 
     public function getTicketIdFromDB()
     {
@@ -130,5 +111,4 @@ class historyController extends Controller
         }
 
     }
-
 }

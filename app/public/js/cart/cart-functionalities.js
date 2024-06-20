@@ -76,10 +76,11 @@ function addToCartFromHistory(event) {
     let date = document.getElementById("dateSelector").value;
     let time = document.getElementById("timeSelector").value;
     let language = document.getElementById("languageSelector").value;
+    console.log("inside the add to cart history!!!")
 
    
     $.ajax({
-        url: "/astrollthroughhistory/getticketidfromdb",
+        url: "/history/getticketidfromdb",
         type: "POST",
         data: {
             ticketTypeSelectors: ticketType,

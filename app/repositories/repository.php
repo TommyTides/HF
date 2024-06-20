@@ -12,11 +12,16 @@ class Repository
     function __construct()
     {
         //require __DIR__ . '/../config/dbconfig.php';
+        // $type = "mysql";
+        // $servername = "localhost";
+        // $username = "u474709953_root";
+        // $password = "#Jo0KTixorL";
+        // $database = "u474709953_festival";
         $type = "mysql";
-        $servername = "auth-db698.hstgr.io";
-        $username = "u474709953_root";
-        $password = "#Jo0KTixorL";
-        $database = "u474709953_festival";
+        $servername = "mysql";
+        $username = "root";
+        $password = "secret123";
+        $database = "festival";
 
         try {
             $this->connection = new PDO("$type:host=$servername;dbname=$database", $username, $password);

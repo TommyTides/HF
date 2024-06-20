@@ -2,6 +2,8 @@
 namespace App\Repositories;
 
 use App\Models\Product;
+use App\Models\DanceProduct;
+use App\Models\JazzProduct;
 use PDO;
 use PDOException;
 use Exception;

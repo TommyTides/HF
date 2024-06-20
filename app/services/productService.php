@@ -266,20 +266,6 @@ class ProductService
         return date('d-m-Y');
     }
 
-    public function getRestaurantProducts(): Product|array|null
-    {
-        $query = "SELECT product_id, product_type, e.event_id, e.name, e.description, 
-                    price_exc_vat, vat, start_time, end_time, sub_description
-                    FROM products AS p 
-                    INNER JOIN events AS e
-                    ON p.event_id = e.event_id 
-                    WHERE e.event_type = 4
-                    ORDER BY e.name;
-                    ";
-
-        return $this->productRepository->getRestaurantEvents($query);
-    }
-
     public function getAllArtistProducts(int $artistId): bool|array|null
     {
         return $this->productRepository->getAllArtistProducts($artistId);

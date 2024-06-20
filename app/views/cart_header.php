@@ -8,7 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <!-- Font Awesome CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/cart.css" />
   <title>Web Design Mastery | HF</title>
 
   <script defer src="https://unpkg.com/scrollreveal"></script>
@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <header class="header" id="home">
+  <header class="checkout_header" id="home">
     <nav>
       <div class="nav__bar">
         <a href="/" class="logo nav__logo">
@@ -50,27 +50,5 @@
 
       </div>
     </nav>
-    <div class="section__container header__container">
-      <div class="header__content">
-        <h3 class="section__subheader">Explore Haarlem's Beauty!</h3>
-        <h1 class="section__header">
-          The Festival
-        </h1>
-        <div class="countdown section__header countdown-container">
-          <p id="demo"></p>
-        </div>
-        <div class="scroll__btn">
-          <a href="#about">
-            Scroll down
-            <span><i class="ri-arrow-down-line"></i></span>
-          </a>
-        </div>
-      </div>
-      <div class="header__socials">
-        <span>Follow us</span>
-        <a href="#"><i class="ri-instagram-line"></i></a>
-        <a href="#"><i class="ri-twitter-fill"></i></a>
-      </div>
-    </div>
   </header>
   <!-- End Nav/Header -->

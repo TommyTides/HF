@@ -3,7 +3,7 @@
 
 use App\Services\LocationService;
 
-include __DIR__ . '/../header.php';
+include __DIR__ . '/../jazz_header.php';
 ?>
 
 <!-- Start description section -->

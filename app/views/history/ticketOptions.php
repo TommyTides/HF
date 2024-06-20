@@ -33,5 +33,5 @@
 
             </div>
         </div>
-        <script type="text/javascript" defer src="../../js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" defer src="/js/bootstrap.bundle.min.js"></script>
 </body>

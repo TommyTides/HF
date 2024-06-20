@@ -5,18 +5,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <?php include(__DIR__ . '/../headgeneralinfo.php'); ?>
+  <!--Delete the below line later. Only used for auto complete temporarily-->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <!--Delete the below line later. Only used for auto complete temporarily-->
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+
   <!-- Font Awesome CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/css/style.css" />
-  <title>Web Design Mastery | HF</title>
+  <link rel="stylesheet" href="/css/jazz.css" />
+  <title>Haarlem Festival | HF</title>
 
   <script defer src="https://unpkg.com/scrollreveal"></script>
   <script defer src="/js/script.js"></script>
+  <script defer src="/js/cart/cart-functionalities.js"></script>
 </head>
 
 <body>
-  <header class="header" id="home">
+  <header class="checkout_header" id="home">
     <nav>
       <div class="nav__bar">
         <a href="/" class="logo nav__logo">
@@ -50,27 +56,5 @@
 
       </div>
     </nav>
-    <div class="section__container header__container">
-      <div class="header__content">
-        <h3 class="section__subheader">Explore Haarlem's Beauty!</h3>
-        <h1 class="section__header">
-          The Festival
-        </h1>
-        <div class="countdown section__header countdown-container">
-          <p id="demo"></p>
-        </div>
-        <div class="scroll__btn">
-          <a href="#about">
-            Scroll down
-            <span><i class="ri-arrow-down-line"></i></span>
-          </a>
-        </div>
-      </div>
-      <div class="header__socials">
-        <span>Follow us</span>
-        <a href="#"><i class="ri-instagram-line"></i></a>
-        <a href="#"><i class="ri-twitter-fill"></i></a>
-      </div>
-    </div>
   </header>
   <!-- End Nav/Header -->

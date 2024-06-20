@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controllers;
 
 use App\Services\CartService;
@@ -21,6 +22,24 @@ class CartController
 
     public function index(): void
     {
+        $productService = $this->productService;
+
+        // If cart is shared
+        if (isset($_GET['share'])) {
+            $isShared = true;
+
+            // Get data of products in shopping cart to load into view
+            $cartItems = $this->cartService->getCartProductsByShareLink($_GET['share']);
+        } else { // If cart is not shared
+            $isShared = false;
+            // Get data of products in shopping cart to load into view
+            $cartItems = $this->productService->getCartProducts();
+        }
+
+        // Get the subtotal, shipping cost and total
+        $subtotal = $this->productService->getSubtotalPrice($cartItems);
+        $total = $this->productService->getTotalPrice($cartItems);
+
         require_once(__DIR__ . '/../views/cart/shoppingcart.php');
     }
 
@@ -29,8 +48,7 @@ class CartController
         $productService = $this->productService;
 
         // If cart is shared
-        if (isset($_GET['share']))
-        {
+        if (isset($_GET['share'])) {
             $isShared = true;
 
             // Get data of products in shopping cart to load into view
@@ -51,28 +69,28 @@ class CartController
 
     public function checkout(): void
     {
-        // Get data of products in shopping cart to load into view
-        $cartProducts = $this->productService->getCartProducts();
+        // // Get data of products in shopping cart to load into view
+        // $cartProducts = $this->productService->getCartProducts();
 
-        if ($cartProducts == null) {
-            header('location: /cart/shoppingcart');
-            return;
-        }
+        // if ($cartProducts == null) {
+        //     header('location: /cart/index');
+        //     return;
+        // }
 
-        // Get user data
-        if (isset($_SESSION['user'])) {
-            $user = unserialize($_SESSION['user']);
-        } else {
-            $user = null;
-        }
+        // // Get user data
+        // if (isset($_SESSION['user'])) {
+        //     $user = unserialize($_SESSION['user']);
+        // } else {
+        //     $user = null;
+        // }
 
-        // Get the subtotal, shipping cost and total to display
-        $subtotal = $this->productService->getSubtotalPrice($cartProducts);
-        $total = $this->productService->getTotalPrice($cartProducts);
+        // // Get the subtotal, shipping cost and total to display
+        // $subtotal = $this->productService->getSubtotalPrice($cartProducts);
+        // $total = $this->productService->getTotalPrice($cartProducts);
 
         require_once(__DIR__ . '/../views/cart/checkout.php');
     }
- 
+
     public function addtocart(): void
     {
         $this->cartService->addToCart();

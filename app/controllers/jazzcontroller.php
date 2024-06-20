@@ -38,6 +38,11 @@ class JazzController extends Controller
             $this->event();
             return;
         }
+        // $festivalDays = $this->eventService->getFestivalDays(null);
+        $artists = $this->artistService->getAll();
+        // $venues = $this->eventService->getAllJazzVenues();
+        $events = $this->eventService->getAllJazzEvents();
+
         $jazz_events = $this->eventService->getAllJazzEvents();
         // Check if a specific day is set
         if (isset($_GET['day'])) {

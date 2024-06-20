@@ -94,7 +94,6 @@ body {
 
 .btn:hover {
   background-color: rgba(10, 30, 39, 0.5);
-  color: var(--white);
 }
 
 .logo a {
@@ -125,25 +124,14 @@ body {
 
 .header {
   position: relative;
-  height: 100vh;
-}
-
-.header::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: calc(100% + 15rem);
+  height: 80px;
   background-image: radial-gradient(
       rgba(255, 255, 255, 0),
       var(--primary-color)
     ),
     url("../img/banner1.png");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  z-index: -1;
+  background-size: cover; /* Ensure the image covers the area without resizing */
+  background-position: center; /* Center the image */
 }
 
 nav {
@@ -437,16 +425,14 @@ nav {
     grid-template-columns: 2fr 1fr 1fr;
   }
 }
+
 /* CARD HOVER */
-.page-content-container {
-  background-color: var(--primary-color);
-}
 .page-content {
   background-color: transparent;
   display: grid;
   grid-gap: 1rem;
   padding: 1rem;
-  max-width: 512px;
+  max-width: 1024px;
   margin: 0 auto;
   font-family: var(--font-sans);
 }
@@ -457,7 +443,7 @@ nav {
 }
 @media (min-width: 800px) {
   .page-content {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 .css-card {
@@ -981,8 +967,8 @@ body {
 }
 
 .table-shadow {
-  -webkit-box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.42);
-  box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.42);
+  -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.42);
+  box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.42);
 }
 
 .type {
@@ -1020,9 +1006,9 @@ label.radio input:checked + span {
 }
 
 .credit-inputs {
-  background: rgb(102,102,221);
+  background: rgb(102, 102, 221);
   color: #fff !important;
-  border-color: rgb(102,102,221);
+  border-color: rgb(102, 102, 221);
 }
 
 .credit-inputs::placeholder {
@@ -1036,12 +1022,12 @@ label.radio input:checked + span {
 }
 
 .form-control.credit-inputs:focus {
-  background: rgb(102,102,221);
-  border: rgb(102,102,221);
+  background: rgb(102, 102, 221);
+  border: rgb(102, 102, 221);
 }
 
 .line {
-  border-bottom: 1px solid rgb(102,102,221);
+  border-bottom: 1px solid rgb(102, 102, 221);
 }
 
 .information span {
@@ -1054,7 +1040,7 @@ label.radio input:checked + span {
 }
 
 .items {
-  -webkit-box-shadow: 5px 5px 4px -1px rgba(0,0,0,0.25);
+  -webkit-box-shadow: 5px 5px 4px -1px rgba(0, 0, 0, 0.25);
   box-shadow: 5px 5px 4px -1px rgba(0, 0, 0, 0.08);
 }
 
@@ -1072,24 +1058,7 @@ label.radio input:checked + span {
     url("../img/banner1.png");
 }
 
-.checkout_header::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-image: radial-gradient(
-      rgba(255, 255, 255, 0),
-      var(--primary-color)
-    ),
-    url("../img/banner1.png");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  z-index: -1;
-} */
-/* End Checkout
+/* End Checkout */
 
 /* Start Cart */
 .cart-bg-primary {
@@ -1098,3 +1067,312 @@ label.radio input:checked + span {
   overflow: hidden;
 }
 /* End Cart */
+
+/* Start dance */
+.dance_fullwidth {
+  width: 100%;
+}
+
+.dance_smooth_scroll {
+  scroll-behavior: smooth;
+}
+
+.dance_franklin_gothic {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.dance_padding_large {
+  padding-left: 130px;
+  padding-right: 130px;
+  padding-top: 50px;
+  background-color: #03426c; // influences artist card
+}
+
+.dance_header {
+  font-size: 50px;
+  font-weight: 1000;
+  margin-bottom: 0px;
+}
+
+.dance_thick_hr {
+  height: 3px;
+}
+
+.dance_flex_row {
+  display: flex;
+  flex-direction: row;
+  -ms-flex-align: start;
+}
+
+.dance_justify_space_between {
+  justify-content: space-between;
+}
+
+.dance_padding_vertical {
+  padding-top: 30px;
+  padding-bottom: 100px;
+}
+
+.dance_artist_thumbnail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dance_thumbnail_size {
+  width: 12vw;
+  height: 300px;
+}
+
+.dance_thumbnail_button {
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none !important;
+}
+
+.dance_thumbnail_image {
+  height: 100%;
+  width: 100%;
+}
+
+.dance_venue_height {
+  height: 600px;
+}
+
+.dance_zero_height {
+  height: 0px;
+}
+
+.dance_link_reset {
+  text-decoration: none;
+  color: black;
+}
+
+.dance_venue_container {
+  width: 12vw;
+  height: 300px;
+}
+
+.dance_expand_info_button {
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.dance_venue_image {
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.dance_info_padding {
+  padding: 5px;
+  padding-top: 0px;
+}
+
+.dance_info_text {
+  font-size: 12px;
+}
+
+.dance_space_top {
+  height: 60px;
+}
+
+.dance_schedule_flex {
+  width: 100%;
+  height: 1080px;
+  display: flex;
+  flex-direction: row;
+  flex-align: start;
+  justify-content: space-around;
+}
+
+.dance_schedule_column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3%;
+  width: 100%;
+}
+
+.dance_day_header {
+  font-weight: 700;
+  font-size: 96px;
+  letter-spacing: 10px;
+}
+
+.dance_month_header {
+  font-weight: 200;
+  font-size: 60px;
+  letter-spacing: 10px;
+}
+
+.dance_hr_90 {
+  width: 90%;
+  height: 5px;
+}
+
+.dance_schedule_item {
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  align-items: left;
+  margin-top: 50px;
+  width: 80%;
+  justify-content: center;
+}
+
+.dance_event {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.dance_event_info {
+  display: flex;
+  margin-left: 3vw;
+  flex-direction: row;
+  align-items: top;
+}
+
+.dance_event_dot_container {
+  width: 30px;
+  height: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dance_event_dot {
+  background-color: black;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.dance_box_container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* min-height: 100vh; */
+  min-width: auto;
+  margin-bottom: 50px;
+  background: transparent;
+  font-family: sans-serif;
+}
+.dance_box {
+  width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 15px;
+  margin: 0 auto;
+}
+.dance_artist_card {
+  position: relative;
+  width: 300px;
+  height: 350px;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.dance_artist_card:before,
+.dance_artist_card:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: #fff;
+  transition: 0.5s;
+  z-index: -1;
+}
+.dance_artist_card:hover:before {
+  transform: rotate(20deg);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+.dance_artist_card:hover:after {
+  transform: rotate(10deg);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+.dance_artist_card .dance_imgBx {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  background: #222;
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.dance_artist_card:hover .dance_imgBx {
+  bottom: 80px;
+}
+
+.dance_artist_card .dance_imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dance_artist_card .dance_artist_details {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  height: 60px;
+  text-align: center;
+}
+
+.dance_artist_card .dance_artist_details h2 {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  font-size: 20px;
+  color: #777;
+  text-transform: uppercase;
+}
+
+.dance_artist_card .dance_artist_details h2 span {
+  font-weight: 500;
+  font-size: 16px;
+  color: #f38695;
+  display: block;
+  margin-top: 5px;
+}
+
+/* dance event */
+.custom-max-height {
+  max-height: 22em;
+}
+
+.custom-width {
+  width: 550px;
+}
+
+.custom-height {
+  height: 350px;
+}
+
+#featured-artists {
+  background-color: #03426c;
+}
+
+#event-location {
+  background-color: #03426c;
+}
+
+.history-bg {
+  background-color: #03426c;
+}
