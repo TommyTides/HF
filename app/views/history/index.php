@@ -207,7 +207,7 @@ include __DIR__ . '/../jazz_header.php';
                                         <option value="english">English</option>
 
                                         <option value="dutch">Dutch</option>
-                                        <option value="german">German</option>
+                                        <option value="german">Chinese</option>
                                     </select>
                                 </div>
                                 <div class="col m-3">
@@ -223,7 +223,7 @@ include __DIR__ . '/../jazz_header.php';
                                 <div class="col m-3">
                                     <h5>Ticket Type</h5>
                                     <select name="ticketTypeSelectors" id="ticketTypeSelector">
-                                        <option value="2">Regular Ticket: €15.00</option>
+                                        <option value="2">Regular Ticket: €17.50</option>
                                         <option value="6">Family Ticket: €60.00</option>
                                     </select>
                                 </div>
