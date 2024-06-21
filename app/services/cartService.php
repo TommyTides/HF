@@ -213,6 +213,10 @@ class CartService
         // Empties cart & overview data
         if (isset($_SESSION['user'])) {
             $user = unserialize($_SESSION['user']);
+            if (isset($_SESSION['cart'])) {
+                unset($_SESSION['cart']);
+                unset($_SESSION['confirmationData']);
+            }
             $this->cartRepository->emptyCartByUserId($user->getUserId());
         } else {
             unset($_SESSION['cart']);

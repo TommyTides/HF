@@ -9,9 +9,11 @@
   <!-- Font Awesome CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/cart.css" />
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
   <title>Web Design Mastery | HF</title>
 
   <script defer src="https://unpkg.com/scrollreveal"></script>
+  <script defer src="/js/cart/cart-functionalities.js"></script>
   <script defer src="/js/script.js"></script>
 </head>
 

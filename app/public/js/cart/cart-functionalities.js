@@ -129,6 +129,7 @@ function addToCartFromHistory(event) {
 }
 
 function clear_cart() {
+  console.log("Clearing cart...");
     $.ajax({
         url: "/cart/emptycart",
         success: function (reply) {
