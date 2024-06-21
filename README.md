@@ -54,4 +54,4 @@ docker run --rm --interactive --tty --volume ${PWD}/app:/app composer dump-autol
 
 link: crab-better-presumably.ngrok-free.app
 
-### user: tz3@gmail.com Password123
+### user: hfestivalphp@gmail.com test1234

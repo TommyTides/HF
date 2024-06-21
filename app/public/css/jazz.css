@@ -1476,3 +1476,7 @@ label.radio input:checked + span {
       max-width: 100%;
   }
 }
+
+#appearances {
+  background: #03426c;
+}

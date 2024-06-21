@@ -4,9 +4,9 @@ include __DIR__ . '/../cart_header.php';
 ?>
 
 <!-- Start cart content -->
-<main class="page pt-5 pb-5 bg-light">
+<main class="page pt-5 pb-5 text-bl">
     <section class="pt-5">
-        <div class="container">
+        <div class="container text-bl">
             <div>
                 <?php
                 if (!$isShared) {
@@ -129,7 +129,7 @@ include __DIR__ . '/../cart_header.php';
                     ?>
                         <div class="col-md-12 col-lg-3 border-start" id="summary">
                             <div class="summary sticky-xl-top sticky-lg-top sticky-md-top" style="top: 70px;">
-                                <h4 class="text-muted">Summary</h4>
+                                <h4 class="text-muted text-bl">Summary</h4>
                                 <div class="summary-item row">
                                     <span class="text col-md-4 col-sm-2 w-100">Subtotal (Excl. Tax)</span>
                                     <span class="fw-semibold col-md-5 col-sm-4" id="subtotal">
