@@ -23,29 +23,29 @@ function add_product($id, $price) {
   });
 }
 
-function add_product(productId, productPrice, productQuantity) {
+function add_product_2(productId, productPrice, productQuantity) {
   // Retrieve the product quantity from the input if available
-  let inputQuantity = document.getElementById("input-quantity-" + productId);
-  if (inputQuantity !== null) {
-    productQuantity = inputQuantity.value;
+  let $quantity = 1;
+  // Check if an input exists
+  let $input = document.getElementById("input-quantity-" + productId);
+
+  if ($input != null) {
+    $quantity = $input.value;
   }
 
   $.ajax({
     url: "/cart/addtocart",
-    method: "POST", // Adjust the method as needed
     data: {
       product_id: productId,
       product_price: productPrice,
-      product_quantity: productQuantity
+      product_quantity: $quantity,
     },
     success: function (reply) {
       console.log(reply);
-      // Handle success response as needed
     },
     error: function (req, status, error) {
-      console.error("Error occurred: ", status, error, req);
-      // Handle error response as needed
-    }
+      console.log("Something went wrong: ", status, error, req);
+    },
   });
 }
 

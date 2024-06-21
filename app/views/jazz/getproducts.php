@@ -82,7 +82,7 @@
                     <div class="d-flex flex-row mt-1">
                         <input type="number" id="input-quantity-<?= $product->getProductId() ?>" min="1" max="10" value="1"
                             class="form-control rounded-0 ticket-input">
-                        <button onclick="add_product(this.getAttribute('data-product-id'),
+                        <button onclick="add_product_2(this.getAttribute('data-product-id'),
                             this.getAttribute('data-product-price'), this.getAttribute('data-product-quantity'))"
                             class="btn btn-addtocart rounded-0 fw-semibold" id="btn-product-<?= $product->getProductId() ?>"
                             data-product-id="<?= $product->getProductId() ?>" data-product-quantity="1"
