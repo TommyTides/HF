@@ -1271,3 +1271,208 @@ label.radio input:checked + span {
 .text-gold {
   color: #D9B448;
 }
+
+.text-bl {
+  color: white;
+}
+
+/* jazz index */
+.header-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 50vh;
+}
+
+.header-image::before {
+  content: ' ';
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: inherit;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.23);
+  z-index: 0;
+}
+
+.header-title {
+  padding-top: 10vh;
+}
+
+.header-subtitle {
+  background-color: white;
+  color: black;
+  padding: 4px 10px 5px 10px;
+}
+
+
+
+.jazz-intro-title {
+  background: linear-gradient(180deg, #CFB8FF 36.46%, #e9c675 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+#featured-artists {
+  background: #03426c;
+}
+
+#featured-artists-first-line {
+  height: 4px;
+  width: 27vw;
+  max-width: 365px;
+  min-width: 260px;
+  background: #D9B448;
+}
+
+#featured-artists-last-line {
+  height: 4px;
+  width: 20vw;
+  max-width: 260px;
+  min-width: 200px;
+  background: #D9B448;
+}
+
+.text-gold {
+  color: #D9B448;
+}
+
+#keywords, #datepicker input[type='text'], #datepicker-icon, #slider-tooltips {
+  background-color: #03426c;
+  color: black;
+}
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+#datepicker input[type='text'] {
+  border-right: none;
+}
+
+#datepicker-icon {
+  border-left: none;
+  color: #AAAAAA;
+  height: 100%;
+}
+
+#events-date {
+  background: none;
+  border-right: 5px solid #323232;
+}
+
+#events-day {
+  background: #CFB8FF;;
+  height: 0;
+  width: 80%;
+  padding-bottom: 80%;
+}
+
+#events-day p {
+  padding-top: 0.85rem;
+}
+
+#events-month {
+  width: 80%;
+}
+
+.event {
+  margin-left: 1.4rem;
+  background: #03426c;
+}
+
+.event-quick-info {
+  padding-right: 15px;
+}
+
+.event-icon {
+  padding-right: 5px;
+}
+
+.event-image {
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.price {
+  padding-right: 5px;
+}
+
+.ticket-input {
+  max-width: 5rem;
+  margin-right: 1em;
+}
+
+.btn-addtocart {
+  width: auto;
+  background: #e9c675;
+  color: white;
+  padding: 0.6rem;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-addtocart:hover {
+  background: #CFB8FF;
+  cursor: pointer;
+}
+
+
+#events-product-date {
+  background: none;
+  border-right: 5px solid rgba(50, 50, 50, 0);
+}
+
+#events-product-day {
+  background: #CFB8FF;
+  color: white;
+  height: 0;
+  width: 80%;
+  padding-bottom: 80%;
+}
+
+#events-product-day p {
+  padding-top: 0.85rem;
+}
+
+#events-product-month {
+  width: 80%;
+}
+
+#event-location {
+  background: #03426c;
+}
+
+.event-artist-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100%;
+}
+
+#music-samples {
+  max-width: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+  #music-samples {
+      max-width: 100%;
+  }
+}

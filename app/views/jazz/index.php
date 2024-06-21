@@ -1,111 +1,83 @@
 <!-- include header -->
 <?php
-
 use App\Services\LocationService;
 
 include __DIR__ . '/../jazz_header.php';
 ?>
 
-<!-- Start description section -->
-<!-- <section class="about">
-  <div class="section__container about__container">
-    <div class="about__image about__image-1" id="about">
-      <img src="img/about-1.jpg" alt="about" />
+<div class="p-5 text-center bg-image header-image" style="
+              background-image: url('../../img/jazz_index_header.png');">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white">
+                <h1 class="mb-3 fw-bold header-title position-relative">JAZZ PERFORMANCES</h1>
+                <h4 class="mb-3 fw-semibold header-subtitle position-relative">FROM THURSDAY THROUGH SATURDAY</h4>
+                <a class="btn btn-outline-light btn-lg rounded-0 position-relative" href="#!" role="button"
+                >BOOK YOUR TICKETS</a
+                >
+            </div>
+        </div>
     </div>
-    <div class="about__content about__content-1">
-      <h3 class="section__subheader">Haarlem Jazz</h3>
-      <h2 class="section__header">27th to 30th July 2024</h2>
-      <p>
-        The Haarlem Jazz Festival is a four-day celebration of jazz music, taking place from July 27th to July 30th in the historic city of Haarlem. Set against the stunning backdrop of Haarlem's historic architecture and picturesque canals, the festival brings together some of the biggest names in jazz, as well as up-and-coming talent, for a series of concerts, workshops, and jam sessions. With a diverse lineup of international and local artists, the Haarlem Jazz Festival is a must-attend event for any jazz enthusiast.
-      </p>
-      <div class="about__btn">
-        <a href="#">
-          Read more
-          <span><i class="ri-arrow-right-line"></i></span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section> -->
+
 <div id="introduction">
   <?= $html ?>
 </div>
 <!-- End description section -->
 
 <!-- Start main content -->
-<main class="page-content">
-  <section class="schedule">
-    <div class="section__container">
-      <div class="schedule__container">
-        <!-- card with text -->
-        <a href="/jazz" class="schedule__card">
-          <h3 class="schedule__day">All Artists</h3>
-        </a>
-        <a href="/jazz?day=26" class="schedule__card">
-          <h3 class="schedule__day">Thu</h3>
-          <p class="schedule__number">26</p>
-        </a>
-        <a href="/jazz?day=27" class="schedule__card">
-          <h3 class="schedule__day">Thu</h3>
-          <p class="schedule__number">27</p>
-        </a>
-        <a href="/jazz?day=28" class="schedule__card">
-          <h3 class="schedule__day">Fri</h3>
-          <p class="schedule__number">28</p>
-        </a>
-      </div>
+<div class="container mb-5">
+    <div class="datalist-wrapper">
+        <div class="search-panel">
+            <div class="d-flex flex-row justify-content-around">
+                <div class="d-flex flex-column col-md-4 mt-4">
+                    <label for="keywords" class="mb-2"><strong>Search</strong></label>
+                    <div class="form-group has-search rounded-0">
+                        <span class="fa fa-search form-control-feedback rounded-0"></span>
+                        <input type="text" class="form-control rounded-0" id="keywords" placeholder="Search...">
+                    </div>
+                </div>
+                <div class="d-flex flex-column col-md-3 mt-4">
+                    <label for="datepicker" class="mb-2 text-bl"><strong>Date</strong></label>
+                    <div class="input-group date rounded-0" id="datepicker">
+                        <input id="datepicker-input" type="text" class="form-control rounded-0" placeholder="Select a date"
+                               value=<?= $date ?>>
+                        <span class="input-group-append d-flex">
+                        <span class="input-group-text d-block rounded-0 d-flex justify-content-center" id="datepicker-icon">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="d-flex flex-column col-md-3 mt-4">
+                    <label for="slider-tooltips" class="mb-3 text-bl"><strong>Price Range (&euro;)</strong></label>
+                    <div id="slider-tooltips"></div>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
-</main>
+</div>
+<div id="datacontainer" class="mt-4 mb-5 container d-flex flex-row text-bl">
+    <div id="events-date" class="col-1 mb-4">
+        <div id="events-day" class="d-flex justify-content-center align-middle">
+            <p class="text-white h1"><?php
+                $dateNumber = DateTime::createFromFormat('d-m-Y H:i:s', $date);
+                echo $dateNumber->format('d');
+                ?></p>
+        </div>
+        <div id="events-month" class="d-flex justify-content-center">
+            <p class="h2 fw-semibold text-uppercase"><?php
+                $dateMonth = DateTime::createFromFormat('d-m-Y H:i:s', $date);
+                echo $dateMonth->format('M');
+                ?></p>
+        </div>
+    </div>
+    <div id="events" class="col">
+    </div>
+</div>
 <!-- End main content -->
 
-<!-- Display all artists -->
-<section class="artists">
-  <div class="artist_section__container">
-    <h2 class="artist__section__header">Artists</h2>
-    <div class="artists__container">
-      <?php foreach ($jazz_events as $jazz_event) : ?>
-        <div class="artist">
-          <!-- <h2><?= $jazz_event['event_id'] ?></h2> -->
-          <h3 class="artist__name"><?= $jazz_event['name'] ?></h3>
-          <!-- img -->
-          <?php
-          $image = $this->eventService->getEventImageByEventId($jazz_event['event_id']);
-          if ($image && $image->getImage()) {
-            // If image exists
-          ?>
-            <img src="<?= "img/jazz/" . $image->getImage(); ?>" alt="artist" class="artist__image" />
-          <?php
-          } else {
-            // If no image is available
-          ?>
-            <img src="/img/placeholder_image.jpg" alt="No Image Available" class="artist__image" />
-          <?php
-          }
-          ?>
-          <!-- time -->
-          <?php
-          // Format start time and end time
-          $start_time = date('H:i', strtotime($jazz_event['start_time']));
-          $end_time = date('H:i', strtotime($jazz_event['end_time']));
-          ?>
-          <p class="artist__time"><?= "time: " . $start_time . " - " . $end_time ?></p>
-          <!-- location -->
-          <?php $location = $this->locationService->getLocationByEvent($jazz_event['event_id']); ?>
-          <p class="artist__location"><?= "Location: " . $location->getName() ?></p>
-          <!-- price -->
-          <p class="artist__price">Price: €<?= $jazz_event['price_exc_vat'] ?></p>
-          <a href="<?= "/jazz?event=".$jazz_event['event_id']?>" class="btn-card-hover">Read more</a>
-          <button class="btn-add-to-cart">Add to Cart</button>
-        </div>
-      <?php endforeach; ?>
-    </div>
-  </div>
-</section>
 
 <!-- include footer -->
 <?php
-include __DIR__ . '/../footer.php';
+include __DIR__ . '/../jazz-footer.php';
 ?>
 
 <script>

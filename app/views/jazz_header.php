@@ -10,7 +10,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/jazz.css" />
   <title>Web Design Mastery | HF</title>
-
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/components/datepicker.js"></script>
+  <script src="/js/components/nouislider.min.js"></script>
+  <script src="/js/components/createslider.js" defer></script>
+  <script type="text/javascript" src="/js/jazz/filter_products.js" defer></script>
   <script defer src="https://unpkg.com/scrollreveal"></script>
   <script defer src="/js/script.js"></script>
   <script defer src="/js/cart/cart-functionalities.js"></script>
@@ -28,6 +32,7 @@
         </a>
         <ul class="nav__links" id="nav-links">
           <li><a href="/jazz">Jazz</a></li>
+          <li><a href="/dance">Dance</a></li>
           <li><a href="/history">History</a></li>
           <li><a href="/cart">Cart</a></li>
         </ul>

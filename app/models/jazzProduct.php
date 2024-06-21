@@ -5,6 +5,7 @@ class JazzProduct extends Product
 {
     private string $start_time;
     private string $end_time;
+    private ?string $sub_description;
     private int $location_id;
     private string $location;
     private ?string $sublocation;
@@ -39,6 +40,22 @@ class JazzProduct extends Product
     public function setEndTime(string $end_time): void
     {
         $this->end_time = $end_time;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSubDescription(): string
+    {
+        return $this->sub_description;
+    }
+
+    /**
+     * @param string $sub_description
+     */
+    public function setSubDescription(string $sub_description): void
+    {
+        $this->sub_description = $sub_description;
     }
 
     /**

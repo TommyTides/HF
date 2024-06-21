@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controllers;
 
 use App\Services\ProductService;
@@ -29,7 +30,7 @@ class JazzController extends Controller
         $this->pageEditorService = new PageEditorService();
     }
 
-    public function index()
+    public function index(): void
     {
         $path = '/jazz/index';
         $landingcontainer = "#introduction";
@@ -38,66 +39,97 @@ class JazzController extends Controller
         } else {
             $html = "This page does not exist.";
         }
+        // Get date
+        $date = $this->productService->getEarliestJazzDate();
 
-        // if "event" is set in the URL, show the event page
-        if (isset($_GET['event'])) {
-            $this->event();
-            return;
-        }
-        // $festivalDays = $this->eventService->getFestivalDays(null);
-        $artists = $this->artistService->getAll();
-        // $venues = $this->eventService->getAllJazzVenues();
-        $events = $this->eventService->getAllJazzEvents();
+        $products = null;
 
-        $jazz_events = $this->eventService->getAllJazzEvents();
-        // Check if a specific day is set
-        if (isset($_GET['day'])) {
-            // Get the day from the URL parameter
-            $day = $_GET['day'];
+        // Get introduction html
+        $introduction = $this->pageEditorService->retrievePage('/jazz/index', '#introduction');
 
-            // Filter events that start on the specified day
-            $jazz_events = array_filter($jazz_events, function ($event) use ($day) {
-                return substr($event['start_time'], 8, 2) == $day; // Assuming the date format is Y-m-d H:i:s
-            });
-        }
-        require __DIR__ . '/../views/jazz/index.php';
+        // Display view
+        require_once(__DIR__ . '/../views/jazz/index.php');
     }
 
-    // show individual jazz event
+    public function getproducts(): void
+    {
+        // Get date
+        $date = $this->productService->getSelectedJazzDate();
+
+        // Get filtered jazz products
+        $products = $this->productService->getFilteredJazzProducts($date);
+
+        // Get product images (In case of null)
+        $products = $this->productService->getProductImages($products);
+
+        // Display view
+        require_once(__DIR__ . '/../views/jazz/getproducts.php');
+    }
+
     public function event(): void
     {
-        if(!isset($_GET['event'])) {
-            header("Location: /jazz");
-            return;
-        }
         // Get event
-        $event = $this->eventService->getEventById($_GET['event']);
+        $event = $this->eventService->getEvent();
 
         if ($event != null) {
-            // // Get artist
+            // Get artist
             $artists = $this->artistService->getArtistsByEvent($event->getEventId());
 
-            // // Get location
+            // Get location
             $location = $this->locationService->getLocationByEvent($event->getEventId());
 
-            // // Get event product
+            // Get event product
             $product = $this->productService->getSingleJazzProduct($event->getEventId());
 
-            // // Get artist products
+            // Get artist products
             $artistProducts = $this->productService->getAllArtistProducts($artists[0]->getArtistId());
 
-            // // Get images
-            // $banner = $this->eventService->getEventBanner($event->getEventId());
+            // Get images
+            $banner = $this->eventService->getEventBanner($event->getEventId());
 
-            // $artistImages = [];
-            // for ($i = 0; $i < count($artists); $i++) {
-            //     $artistImages[$i] = $this->artistService->getArtistImage($artists[$i]->getArtistId(), "primary");
-            // }
+            $artistImages = [];
+            for ($i = 0; $i < count($artists); $i++) {
+                $artistImages[$i] = $this->artistService->getArtistImage($artists[$i]->getArtistId(), "primary");
+            }
 
             $locationImage = $this->locationService->getLocationImage($location->getLocationId(), "primary");
         }
 
         // Display view
         require_once(__DIR__ . '/../views/jazz/event.php');
+    }
+
+    public function artist(): void
+    {
+        // Get artist
+        $artist = $this->artistService->getArtist();
+
+        if ($artist != null) {
+            // Get images
+            $banner = $this->artistService->getArtistImage($artist->getArtistId(), "banner");
+            $primary = $this->artistService->getArtistImage($artist->getArtistId(), "primary");
+
+            // Get artist products
+            $artistProducts = $this->productService->getAllArtistProducts($artist->getArtistId());
+        }
+
+        // Display view
+        require_once(__DIR__ . '/../views/jazz/artist.php');
+    }
+
+    public function location(): void
+    {
+        // Get location by id
+        $location = $this->locationService->getLocationById();
+        $images = $this->locationService->getLocationImages();
+
+        // Display view
+        require(__DIR__ . '/../views/location/location.php');
+    }
+
+    public function getMaxPrice(): void
+    {
+        $maxPrice = $this->productService->getMaxProductPrice(3);
+        echo $maxPrice;
     }
 }
